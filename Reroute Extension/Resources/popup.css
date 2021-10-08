@@ -3,13 +3,54 @@
 }
 
 body {
-    width: 100px;
-    padding: 10px;
+    background-color: #f0f0f0;
+    margin: 20px;
+    width: 350px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    color: #000;
+}
 
-    font-family: system-ui;
-    text-align: center;
+#title {
+    font: -apple-system-title1;
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+#body-text {
+    font: -apple-system-body;
+    margin-top: 15px;
+}
+
+#footer-text {
+    font: -apple-system-footnote;
+    color: #575757;
+}
+
+.app-icon {
+    margin: 10px;
+    max-width: 70px;
+    -webkit-animation: rotation 2s infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(25deg);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    /* Dark Mode styles go here. */
+    body {
+        color: #fff;
+        background-color: #1c1c1e;
+    }
+    
+    #footer-text {
+        color: #99989d;
+    }
 }
