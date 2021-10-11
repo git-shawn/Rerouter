@@ -29,6 +29,7 @@
 		295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE79F270E4A6000B30A07 /* ExtensionModal.swift */; };
 		295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */; };
 		295EE7A5270E4DED00B30A07 /* InlinePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */; };
+		296EB6D52714BEC00079BD9B /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296EB6D42714BEC00079BD9B /* ActivityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		295EE79F270E4A6000B30A07 /* ExtensionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionModal.swift; sourceTree = "<group>"; };
 		295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyModal.swift; sourceTree = "<group>"; };
 		295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePhotoView.swift; sourceTree = "<group>"; };
+		296EB6D42714BEC00079BD9B /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */,
+				296EB6D42714BEC00079BD9B /* ActivityViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
 				295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */,
+				296EB6D52714BEC00079BD9B /* ActivityViewController.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */,
 			);
@@ -475,7 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Reroute Extension/Info.plist";
@@ -487,7 +491,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -505,7 +509,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Reroute Extension/Info.plist";
@@ -517,7 +521,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -538,7 +542,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reroute/Info.plist;
@@ -553,7 +557,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -575,7 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reroute/Info.plist;
@@ -590,7 +594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

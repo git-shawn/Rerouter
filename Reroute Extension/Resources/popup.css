@@ -30,6 +30,7 @@ body {
 
 .app-icon {
     margin: 10px;
+    margin-bottom: 30px;
     max-width: 70px;
     -webkit-animation: rotation 2s infinite;
     -webkit-animation-direction: alternate;
