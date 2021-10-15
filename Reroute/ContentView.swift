@@ -11,6 +11,7 @@ import StoreKit
 struct ContentView: View {
     @State private var showExtension: Bool = false
     @State private var showPrivacy: Bool = false
+    @State private var showGuide: Bool = false
     @State private var showShare: Bool = false
     private var sawRatingRequest: Bool = UserDefaults.standard.bool(forKey: "sawRatingRequest")
     
@@ -35,6 +36,22 @@ struct ContentView: View {
                     }
                     
                     Button(action: {
+                        showGuide = true
+                    }) {
+                        Label {
+                            Text("How to Use Rerouter")
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "map.fill")
+                                .foregroundColor(.accentColor)
+                        }
+                    }.sheet(
+                        isPresented: self.$showGuide
+                    ) {
+                        GuideModal()
+                    }
+                    
+                    Button(action: {
                         showPrivacy = true
                     }) {
                         Label {
@@ -52,7 +69,7 @@ struct ContentView: View {
                     
                 }
                 Section {
-                    Link(destination: URL(string: "mailto:shawnios@outlook.com")!) {
+                    Link(destination: URL(string: "mailto:contact@fromshawn.dev")!) {
                         Label {
                             Text("Contact")
                                 .foregroundColor(.primary)
