@@ -13,11 +13,17 @@
         "256": "images/icon-256.png",
         "512": "images/icon-512.png"
     },
+    
+    "background": {
+        "scripts": [ "background.js" ],
+        "persistent": false
+    },
 
     "content_scripts": [{
         "js": [ "content.js" ],
         "matches": [ "*://*.google.com/*", "*://google.com/*" ],
-        "run_at": "document_start"
+        "run_at": "document_start",
+        "all_frames": false
     }],
 
     "browser_action": {
@@ -31,6 +37,8 @@
     },
 
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "nativeMessaging",
+        "storage"
     ]
 }

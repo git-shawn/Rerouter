@@ -13,7 +13,7 @@
 		295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE76A270E31B000B30A07 /* SceneDelegate.swift */; };
 		295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */; };
 		295EE773270E31B000B30A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE771270E31B000B30A07 /* Main.storyboard */; };
-		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		295EE780270E31B500B30A07 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */; };
 		295EE783270E31B600B30A07 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 295EE782270E31B500B30A07 /* _locales */; };
 		295EE785270E31B600B30A07 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 295EE784270E31B600B30A07 /* images */; };
@@ -28,7 +28,11 @@
 		295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE79F270E4A6000B30A07 /* ExtensionModal.swift */; };
 		295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */; };
 		295EE7A5270E4DED00B30A07 /* InlinePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */; };
-		296EB6D52714BEC00079BD9B /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296EB6D42714BEC00079BD9B /* ActivityViewController.swift */; };
+		29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA45E82729980500B57392 /* ActivityExtension.swift */; };
+		29CA45EB27299EFF00B57392 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA45EA27299EFF00B57392 /* PreferencesView.swift */; };
+		29E24E942729E65C004559D1 /* chevron.svg in Resources */ = {isa = PBXBuildFile; fileRef = 29E24E932729E65B004559D1 /* chevron.svg */; };
+		29E24E98272A0789004559D1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E24E95272A0749004559D1 /* StoreManager.swift */; };
+		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +84,13 @@
 		295EE79F270E4A6000B30A07 /* ExtensionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionModal.swift; sourceTree = "<group>"; };
 		295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyModal.swift; sourceTree = "<group>"; };
 		295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePhotoView.swift; sourceTree = "<group>"; };
-		296EB6D42714BEC00079BD9B /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		29CA45E82729980500B57392 /* ActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityExtension.swift; sourceTree = "<group>"; };
+		29CA45EA27299EFF00B57392 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		29E24E932729E65B004559D1 /* chevron.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chevron.svg; path = ../../../../Downloads/chevron.svg; sourceTree = "<group>"; };
+		29E24E95272A0749004559D1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
+		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +115,12 @@
 		295EE754270E31B000B30A07 = {
 			isa = PBXGroup;
 			children = (
+				29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */,
+				29FC6CFB27210082001B6719 /* Rerouter.entitlements */,
 				295EE75F270E31B000B30A07 /* Reroute */,
 				295EE77E270E31B500B30A07 /* Reroute Extension */,
 				295EE75E270E31B000B30A07 /* Products */,
+				29E24E99272A08B1004559D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +136,7 @@
 		295EE75F270E31B000B30A07 /* Reroute */ = {
 			isa = PBXGroup;
 			children = (
+				29E24E97272A075B004559D1 /* Helpers */,
 				29CA615A270E60A600935190 /* Components */,
 				295EE7A1270E4A6B00B30A07 /* Views */,
 				295EE760270E31B000B30A07 /* AppDelegate.swift */,
@@ -160,6 +175,7 @@
 				295EE782270E31B500B30A07 /* _locales */,
 				295EE784270E31B600B30A07 /* images */,
 				295EE786270E31B600B30A07 /* manifest.json */,
+				29E24E932729E65B004559D1 /* chevron.svg */,
 				295EE788270E31B600B30A07 /* background.js */,
 				295EE78A270E31B600B30A07 /* content.js */,
 				295EE78C270E31B600B30A07 /* popup.html */,
@@ -175,6 +191,7 @@
 				295EE79F270E4A6000B30A07 /* ExtensionModal.swift */,
 				2915C983271A08D60005CF7C /* GuideModal.swift */,
 				295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */,
+				29CA45EA27299EFF00B57392 /* PreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,9 +200,25 @@
 			isa = PBXGroup;
 			children = (
 				295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */,
-				296EB6D42714BEC00079BD9B /* ActivityViewController.swift */,
+				29CA45E82729980500B57392 /* ActivityExtension.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		29E24E97272A075B004559D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				29E24E95272A0749004559D1 /* StoreManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		29E24E99272A08B1004559D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29E24E9A272A08B1004559D1 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +319,7 @@
 				295EE785270E31B600B30A07 /* images in Resources */,
 				295EE787270E31B600B30A07 /* manifest.json in Resources */,
 				295EE783270E31B600B30A07 /* _locales in Resources */,
+				29E24E942729E65C004559D1 /* chevron.svg in Resources */,
 				295EE78B270E31B600B30A07 /* content.js in Resources */,
 				295EE791270E31B600B30A07 /* popup.js in Resources */,
 			);
@@ -302,8 +336,10 @@
 				295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
 				295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */,
-				296EB6D52714BEC00079BD9B /* ActivityViewController.swift in Sources */,
+				29CA45EB27299EFF00B57392 /* PreferencesView.swift in Sources */,
+				29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
+				29E24E98272A0789004559D1 /* StoreManager.swift in Sources */,
 				2915C984271A08D60005CF7C /* GuideModal.swift in Sources */,
 				295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */,
 			);
@@ -322,6 +358,7 @@
 /* Begin PBXTargetDependency section */
 		295EE77D270E31B500B30A07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 295EE779270E31B500B30A07 /* Rerouter Extension */;
 			targetProxy = 295EE77C270E31B500B30A07 /* PBXContainerItemProxy */;
 		};
@@ -466,8 +503,9 @@
 		295EE797270E31B600B30A07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Reroute Extension/Info.plist";
@@ -479,7 +517,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -487,6 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -496,8 +535,9 @@
 		295EE798270E31B600B30A07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Reroute Extension/Info.plist";
@@ -509,7 +549,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -517,6 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,8 +570,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reroute/Info.plist;
@@ -545,7 +587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -554,6 +596,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,8 +609,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reroute/Info.plist;
@@ -582,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -591,6 +635,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

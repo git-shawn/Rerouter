@@ -25,7 +25,7 @@ struct InlinePhotoView: View {
         .aspectRatio(4/3, contentMode: .fit)
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .overlay(RoundedRectangle(cornerRadius: 15)
-                    .stroke(.quaternary, lineWidth: 1))
+                    .stroke(Color(UIColor.secondaryLabel), lineWidth: 1))
     }
 }
 

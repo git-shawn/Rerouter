@@ -11,6 +11,32 @@ body {
     color: #000;
 }
 
+button {
+    background-color: #fff;
+    text-decoration: none;
+    text-align: left;
+    border-radius: 15px;
+    padding: 14px 20px 14px 20px;
+    font: -apple-system-body;
+    cursor: pointer;
+    color: #3496FF;
+    width: calc(100% - 15px);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-image: url("chevron.svg");
+    background-size: 8.48px 15px;
+}
+
+button:hover {
+    background-color: #f9f9f9;
+}
+
+button:focus {
+    outline: #3496FF 5px auto;
+}
+
 #title {
     font: -apple-system-title1;
     font-weight: 700;
@@ -18,12 +44,7 @@ body {
     margin-bottom: 0;
 }
 
-#body-text {
-    font: -apple-system-body;
-    margin-top: 15px;
-}
-
-#footer-text {
+#footnote {
     font: -apple-system-footnote;
     color: #575757;
 }
@@ -51,7 +72,15 @@ body {
         background-color: #1c1c1e;
     }
     
-    #footer-text {
+    #footnote {
         color: #99989d;
+    }
+    
+    button {
+        background-color: #2c2c2e;
+    }
+    
+    button:hover {
+        background-color: #464647;
     }
 }

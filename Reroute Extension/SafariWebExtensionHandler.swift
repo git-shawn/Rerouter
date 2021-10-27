@@ -8,17 +8,27 @@
 import SafariServices
 import os.log
 
-class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
+import SafariServices
 
+let SFExtensionMessageKey = "message"
+
+class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
+
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
-        os_log(.default, "Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
-
-        let response = NSExtensionItem()
-        response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
-
-        context.completeRequest(returningItems: [response], completionHandler: nil)
+        
+        let defaults = UserDefaults(suiteName: "group.shwndvs.Rerouter")
+        
+        let messageDictionary = message as? [String: String]
+        if messageDictionary?[SFExtensionMessageKey] == "getDefaults" {
+            
+            let automatic = defaults?.bool(forKey: "automatic") ?? true
+            let openableLinks = defaults?.integer(forKey: "openableLinks") ?? 0
+            
+            let response = NSExtensionItem()
+            response.userInfo = [ SFExtensionMessageKey: [ "automatic": automatic, "openableLinks": openableLinks ] ]
+            context.completeRequest(returningItems: [response], completionHandler: nil)
+        }
     }
-
 }

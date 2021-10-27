@@ -12,12 +12,31 @@ struct ContentView: View {
     @State private var showExtension: Bool = false
     @State private var showPrivacy: Bool = false
     @State private var showGuide: Bool = false
-    @State private var showShare: Bool = false
-    private var sawRatingRequest: Bool = UserDefaults.standard.bool(forKey: "sawRatingRequest")
+    @State var hasPurchased: Bool = false
     
     var body: some View {
         NavigationView {
             List {
+                if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
+                    Section {
+                        VStack(alignment: .center) {
+                            Group {
+                                HStack {
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .font(.largeTitle)
+                                    Text("Rerouter will not work as intended with Google Maps installed.")
+                                }
+                            }.padding()
+                            .foregroundColor(Color("warnTxt"))
+                            .multilineTextAlignment(.leading)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .foregroundColor(Color("warnBkg"))
+                            )
+                        }.listRowBackground(Color.clear)
+                        .frame(maxWidth: .infinity)
+                    }
+                }
                 Section {
                     Button(action: {
                         showExtension = true
@@ -32,7 +51,7 @@ struct ContentView: View {
                     }.sheet(
                         isPresented: self.$showExtension
                     ) {
-                        ExtensionModal()
+                        ExtensionModal(showExtensionModal: $showExtension)
                     }
                     
                     Button(action: {
@@ -48,7 +67,7 @@ struct ContentView: View {
                     }.sheet(
                         isPresented: self.$showGuide
                     ) {
-                        GuideModal()
+                        GuideModal(showGuideModal: $showGuide)
                     }
                     
                     Button(action: {
@@ -64,9 +83,20 @@ struct ContentView: View {
                     }.sheet(
                         isPresented: self.$showPrivacy
                     ) {
-                        PrivacyModal()
+                        PrivacyModal(showPrivacyModal: $showPrivacy)
                     }
                     
+                }
+                Section {
+                    NavigationLink(destination: PreferencesView()) {
+                        Label {
+                            Text("Preferences")
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "text.badge.checkmark")
+                                .foregroundColor(.accentColor)
+                        }
+                    }
                 }
                 Section {
                     Link(destination: URL(string: "mailto:contact@fromshawn.dev")!) {
@@ -79,7 +109,7 @@ struct ContentView: View {
                         }
                     }
                     Button(action: {
-                        self.showShare = true
+                        showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
                     }) {
                         Label {
                             Text("Share Rerouter")
@@ -89,21 +119,58 @@ struct ContentView: View {
                                 .foregroundColor(.accentColor)
                         }
                     }
-                    .sheet(isPresented: $showShare, onDismiss: {
-                        // If they shared the app, request a review. If they've seen the request before, don't show it again.
-                        if (sawRatingRequest == false) {
-                            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-                                SKStoreReviewController.requestReview(in: scene)
-                                UserDefaults.standard.set(true, forKey: "sawRatingRequest")
-                            }
+                    Button(action: {
+                        StoreManager.shared.leaveTip()
+                    }) {
+                        Label {
+                            Text("Buy Me a Coffee")
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image("coffeeTip")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(3)
+                                .foregroundColor(.accentColor)
                         }
-                    }, content: {
-                        ZStack {
-                        ActivityViewController(activityItems: [URL(string: "https://fromshawn.dev/rerouter.html")!])
-                        }.background(.ultraThickMaterial)
-                    })
+                    }
+                    Button(action: {
+                        StoreManager.shared.requestReview()
+                    }) {
+                        Label {
+                            Text("Leave a Review")
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "star.bubble.fill")
+                                .foregroundColor(.accentColor)
+                        }
+                    }
                 }
             }.navigationTitle("Rerouter")
+            .onReceive(StoreManager.shared.purchasePublisher) { value in
+                switch value {
+                case .purchased:
+                    hasPurchased = true
+                case .restored:
+                    hasPurchased = true
+                case .failed:
+                    hasPurchased = false
+                case .deferred:
+                    hasPurchased = false
+                case .purchasing:
+                    hasPurchased = false
+                case .restoreComplete:
+                    hasPurchased = true
+                case .noneToRestore:
+                    hasPurchased = false
+                }
+            }
+            .alert(isPresented: $hasPurchased) {
+                Alert(
+                    title: Text("Thank You!"),
+                    message: Text("Your support means the world to me, and I'm so happy you're enjoying Rerouter. 😊"),
+                    dismissButton: .default(Text("Close"))
+                )
+            }
         }.navigationViewStyle(.stack)
     }
 }
