@@ -25,7 +25,7 @@ struct InlinePhotoView: View {
         .aspectRatio(4/3, contentMode: .fit)
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .overlay(RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color(UIColor.secondaryLabel), lineWidth: 1))
+                    .stroke(.quaternary, lineWidth: 1))
     }
 }
 
@@ -101,8 +101,9 @@ struct PageControl: View {
         HStack(spacing: 8) {
             ForEach(0...maxIndex, id: \.self) { index in
                 Circle()
-                    .fill(index == self.index ? Color.white : Color.gray)
+                    .fill(index == self.index ? .accentColor : Color.gray)
                     .frame(width: 8, height: 8)
+                    .opacity(0.9)
             }
         }
         .padding(15)

@@ -11,7 +11,14 @@ struct GuideModal: View {
     @Binding var showGuideModal: Bool
     @State private var showSheet: Bool = false
     @State var index = 0
+    
+    /// The automatic boolean is used to show different app instructions depending on if the user has automatic mode enabled or disabled.
+    @AppStorage("automatic", store: UserDefaults(suiteName: "group.shwndvs.Rerouter")) var automatic: Bool = true
+    
+    /// Shown when automatic mode is true.
     var images = ["use1", "use2", "use3"]
+    /// Shown when automatic mode is false.
+    var altImages = ["use1", "use2", "use3alt"]
     
     var body: some View {
         NavigationView {
@@ -22,7 +29,7 @@ struct GuideModal: View {
                         HStack{
                             Spacer()
                             VStack() {
-                                InlinePhotoView(index: $index, images: images)
+                                InlinePhotoView(index: $index, images: (automatic ? images : altImages))
                                     .frame(maxHeight: 400)
                             }
                             Spacer()
@@ -31,8 +38,8 @@ struct GuideModal: View {
                             Group {
                                 Label("Search for a Destination", systemImage: "1.circle")
                                 Label("Tap Directions", systemImage: "2.circle")
-                                Label("Tap Open", systemImage: "3.circle")
-                                Text("\nThat's it! 🎉\n\nBy default Rerouting is automatic, but you can chose to disable that feature on the preferences page. When automatic Rerouting is disabled, just press the \"Open in Apple Maps\" button in the Safari Extension instead.")
+                                Label((automatic ? "Tap Open" : "Tap \"Open in Apple Maps\" via the extension."), systemImage: "3.circle")
+                                Text((automatic ? "\nThat's it! 🎉\n\nIf you'd prefer more control, you can disable automatic rerouting in preferences." : "\nThat's it! 🎉\n\nIf you'd prefer rerouting happened automatically, you can enable that in preferences."))
                             }
                         }.padding(.horizontal, 20)
                     }

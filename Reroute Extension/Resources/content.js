@@ -1,15 +1,21 @@
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    // Called when the user presses "Open in Apple Maps" in the pop-up.
     if (request.type == "routeThisPageFromPopup") {
+        // By default, we'll try to open any kind of Maps page in Apple Maps.
+        // If unsuccessful, we just won't do anything.
         if (isGoogleMapsDirectionsPage()) {
             rerouteDirectionsToMaps()
         } else if (isGoogleMapsSearchPage()) {
             rerouteSearchToMaps()
         } else if (isGoogleMapsPage()) {
             rerouteToMaps()
+        } else {
+            alert("Rerouter couldn't open this page in Apple Maps.")
         }
     }
 });
 
+// Return true if the current window is viewing Google Maps directions.
 function isGoogleMapsDirectionsPage() {
     if (window.location.pathname.includes("maps") && window.location.pathname.includes("dir//")) {
         console.log("is directions")
@@ -18,6 +24,7 @@ function isGoogleMapsDirectionsPage() {
     return false;
 }
 
+// Return true if the current window is viewing Google Maps search results.
 function isGoogleMapsSearchPage() {
     if (window.location.pathname.includes("maps") && window.location.pathname.includes("search/")) {
         console.log("is search")
@@ -26,6 +33,7 @@ function isGoogleMapsSearchPage() {
     return false;
 }
 
+// Return true if the current window is viewing Google Maps at all.
 function isGoogleMapsPage() {
     console.log("Testing if maps!")
     if (window.location.pathname.includes("maps")) {
@@ -35,6 +43,8 @@ function isGoogleMapsPage() {
     return false;
 }
 
+// Convert the Google Map's URL to an Apple Map's URL, then replace the window.
+// This function works with navigation directions.
 function rerouteDirectionsToMaps() {
     // Get the path from the Google Maps URL
     var gmapsPath = window.location.pathname;
@@ -56,6 +66,8 @@ function rerouteDirectionsToMaps() {
     window.location.replace(finalUrl);
 }
 
+// Convert the Google Map's URL to an Apple Map's URL, then replace the window.
+// This function works with search results.
 function rerouteSearchToMaps() {
     // Get the path from the Google Maps URL
     var gmapsPath = window.location.pathname;
@@ -78,6 +90,8 @@ function rerouteSearchToMaps() {
     window.location.replace(finalUrl);
 }
 
+// Convert the Google Map's URL to an Apple Map's URL, then replace the window.
+// This function works with most Google Maps webpages.
 function rerouteToMaps() {
     // Get the path from the Google Maps URL
     var gmapsPath = window.location.pathname;
@@ -102,9 +116,7 @@ function rerouteToMaps() {
 
 function handleResponse(message) {
     if (!message) {
-      console.error("This was a fiasco :", runtime.lastError.message)
-    } else {
-        console.log(message)
+      console.error("Uh oh :", runtime.lastError.message)
     }
     
     let automatic = message.response.automatic;
@@ -115,9 +127,10 @@ function handleResponse(message) {
         automatic = true
     }
     
-    console.log(automatic)
-    console.log(openableLinks)
-    
+    // If the user enabled automatic mode (on by default) we'll go ahead and redirect the webpage.
+    // openableLinks == 0 means only redirect navigation directions.
+    // openableLinks == 1 means redirect navigation directions and search results.
+    // openableLinks == 2 means try to redirect anything.
     if (automatic == true) {
         browser.runtime.sendMessage({ type: "rerouteAuto" });
         if (openableLinks == 0) {
@@ -146,5 +159,6 @@ function handleError(error) {
     console.log(`Error: ${error}`);
 }
 
+// Request user preferences from the main app.
 var sending = browser.runtime.sendMessage({ type: "getDefaults" });
 sending.then(handleResponse, handleError);

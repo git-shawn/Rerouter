@@ -1,3 +1,4 @@
+// This entire file is just a bridge between content.js and the main app.
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     function handleNativeResponse(nativeResponse) {
         sendResponse({ response: nativeResponse });

@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     var routeButton = document.getElementById("reroute-manually");
-    var bodyText = document.getElementById("body-text");
     
+    // When the user clicks the "Open in Apple Maps" button, attempt to do that.
     routeButton.addEventListener("click", (event) => {
         console.log("clicked!")
         browser.tabs.query({active: true, currentWindow: true}, function (tabs) {

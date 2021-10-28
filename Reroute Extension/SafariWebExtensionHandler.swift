@@ -18,6 +18,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
         
+        // Rerouter's app group, where preferences are stored.
         let defaults = UserDefaults(suiteName: "group.shwndvs.Rerouter")
         
         let messageDictionary = message as? [String: String]

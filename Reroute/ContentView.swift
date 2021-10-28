@@ -8,15 +8,18 @@
 import SwiftUI
 import StoreKit
 
+/// Rerouter's initial view.
 struct ContentView: View {
     @State private var showExtension: Bool = false
     @State private var showPrivacy: Bool = false
     @State private var showGuide: Bool = false
-    @State var hasPurchased: Bool = false
     
     var body: some View {
         NavigationView {
             List {
+                /// Google Maps takes uses Universal Links to redirect web visitors to their app.
+                /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
+                /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
                 if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
                     Section {
                         VStack(alignment: .center) {
@@ -24,7 +27,7 @@ struct ContentView: View {
                                 HStack {
                                     Image(systemName: "exclamationmark.triangle.fill")
                                         .font(.largeTitle)
-                                    Text("Rerouter will not work as intended with Google Maps installed.")
+                                    Text("Rerouter may not work as intended with Google Maps installed.")
                                 }
                             }.padding()
                             .foregroundColor(Color("warnTxt"))
@@ -38,6 +41,7 @@ struct ContentView: View {
                     }
                 }
                 Section {
+                    /// Present instructions to enable the Rerouter extension.
                     Button(action: {
                         showExtension = true
                     }) {
@@ -54,6 +58,7 @@ struct ContentView: View {
                         ExtensionModal(showExtensionModal: $showExtension)
                     }
                     
+                    /// Present instructions on how to use Rerouter.
                     Button(action: {
                         showGuide = true
                     }) {
@@ -61,7 +66,7 @@ struct ContentView: View {
                             Text("How to Use Rerouter")
                                 .foregroundColor(.primary)
                         } icon: {
-                            Image(systemName: "map.fill")
+                            Image(systemName: "location.circle.fill")
                                 .foregroundColor(.accentColor)
                         }
                     }.sheet(
@@ -70,6 +75,7 @@ struct ContentView: View {
                         GuideModal(showGuideModal: $showGuide)
                     }
                     
+                    /// Present Rerouter's privacy policy.
                     Button(action: {
                         showPrivacy = true
                     }) {
@@ -88,6 +94,8 @@ struct ContentView: View {
                     
                 }
                 Section {
+                    
+                    /// Navigate to the Preferences page.
                     NavigationLink(destination: PreferencesView()) {
                         Label {
                             Text("Preferences")
@@ -97,80 +105,19 @@ struct ContentView: View {
                                 .foregroundColor(.accentColor)
                         }
                     }
-                }
-                Section {
-                    Link(destination: URL(string: "mailto:contact@fromshawn.dev")!) {
+                    
+                    /// Navigate to the About page.
+                    NavigationLink(destination: AboutView()) {
                         Label {
-                            Text("Contact")
+                            Text("About")
                                 .foregroundColor(.primary)
                         } icon: {
-                            Image(systemName: "envelope.fill")
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    Button(action: {
-                        showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
-                    }) {
-                        Label {
-                            Text("Share Rerouter")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "square.and.arrow.up.fill")
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    Button(action: {
-                        StoreManager.shared.leaveTip()
-                    }) {
-                        Label {
-                            Text("Buy Me a Coffee")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image("coffeeTip")
-                                .resizable()
-                                .scaledToFit()
-                                .padding(3)
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    Button(action: {
-                        StoreManager.shared.requestReview()
-                    }) {
-                        Label {
-                            Text("Leave a Review")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "star.bubble.fill")
+                            Image(systemName: "info.circle.fill")
                                 .foregroundColor(.accentColor)
                         }
                     }
                 }
             }.navigationTitle("Rerouter")
-            .onReceive(StoreManager.shared.purchasePublisher) { value in
-                switch value {
-                case .purchased:
-                    hasPurchased = true
-                case .restored:
-                    hasPurchased = true
-                case .failed:
-                    hasPurchased = false
-                case .deferred:
-                    hasPurchased = false
-                case .purchasing:
-                    hasPurchased = false
-                case .restoreComplete:
-                    hasPurchased = true
-                case .noneToRestore:
-                    hasPurchased = false
-                }
-            }
-            .alert(isPresented: $hasPurchased) {
-                Alert(
-                    title: Text("Thank You!"),
-                    message: Text("Your support means the world to me, and I'm so happy you're enjoying Rerouter. 😊"),
-                    dismissButton: .default(Text("Close"))
-                )
-            }
         }.navigationViewStyle(.stack)
     }
 }

@@ -46,6 +46,8 @@ button:focus {
 
 #footnote {
     font: -apple-system-footnote;
+    padding-left: 10px;
+    padding-right: 10px;
     color: #575757;
 }
 

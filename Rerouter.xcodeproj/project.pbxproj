@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2915C984271A08D60005CF7C /* GuideModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915C983271A08D60005CF7C /* GuideModal.swift */; };
+		295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D12E5272AF2E200C04C7A /* AboutView.swift */; };
 		295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE760270E31B000B30A07 /* AppDelegate.swift */; };
 		295EE767270E31B000B30A07 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 295EE766270E31B000B30A07 /* Icon.png */; };
 		295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE76A270E31B000B30A07 /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		2915C983271A08D60005CF7C /* GuideModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideModal.swift; sourceTree = "<group>"; };
+		295D12E5272AF2E200C04C7A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		295EE75D270E31B000B30A07 /* Rerouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rerouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295EE760270E31B000B30A07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295EE766270E31B000B30A07 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				2915C983271A08D60005CF7C /* GuideModal.swift */,
 				295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */,
 				29CA45EA27299EFF00B57392 /* PreferencesView.swift */,
+				295D12E5272AF2E200C04C7A /* AboutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			files = (
 				295EE7A5270E4DED00B30A07 /* InlinePhotoView.swift in Sources */,
 				295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */,
+				295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
 				295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */,
 				29CA45EB27299EFF00B57392 /* PreferencesView.swift in Sources */,
