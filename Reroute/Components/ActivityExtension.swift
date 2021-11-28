@@ -24,7 +24,7 @@ extension View {
         
         //  In iOS 15.1 the ShareSheet may disappear but not close, blocking the app from presenting another one.
         //  This fixes that issue by dismissing any presented controllers there may be first.
-        try source.presentedViewController?.dismiss(animated: true, completion: nil)
+        source.presentedViewController?.dismiss(animated: true, completion: nil)
         
         //Present a popover view in the center of the screen for an iPad.
         //TODO: Attatch the popover to it's source in some way.
