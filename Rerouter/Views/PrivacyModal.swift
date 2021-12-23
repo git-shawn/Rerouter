@@ -24,7 +24,7 @@ struct PrivacyModal: View {
                           .foregroundColor(.accentColor)
                         Spacer()
                     }.padding(.bottom)
-                    Text("Rerouter does not contain any trackers or loggers, and does not collect any user information. \n\nAdditionally, Rerouter will never add tracking via an update. Rerouter performs all processing on your device. That means Rerouter never shares your browsing information with a person, company, or server.")
+                    Text("Rerouter does not contain any trackers or loggers, and does not collect any user information. \n\nAdditionally, Rerouter will **never** add tracking via an update. Rerouter performs all processing on your device. That means Rerouter never shares your browsing information with a person, company, or server.")
                 }
             }
             .padding(.horizontal, 20)

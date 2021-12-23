@@ -44,7 +44,7 @@ struct ExtensionModal: View {
                                 #endif
                             }
                             HStack() {
-                                Label("Allow \"google.com\"", systemImage: "6.circle")
+                                Label("Allow *All Websites*", systemImage: "6.circle")
                                 Spacer()
                                 Button(action: {
                                     self.showSheet = true
@@ -57,9 +57,9 @@ struct ExtensionModal: View {
                                     NavigationView {
                                         ScrollView {
                                             VStack(alignment: .leading, spacing: 20) {
-                                                Text("Why should I allow access to google.com?")
+                                                Text("Why should I allow access to all websites")
                                                     .font(.system(size: 32, weight: .bold))
-                                                Text("Rerouter works by extracting the URL from the webpage and converting it into a URL that can be opened in Apple Maps. Rerouter then 'reroutes' the webpage to this new URL. Allowing \"google.com\" access makes this process convenient and automatic.\n\nGiving an extension the ability to modify webpages that you visit can be risky business, so Safari checks to make sure you're serious before sharing that information.\n\nRerouter may not work correctly, or at all, without this permission.\n\nYou can be confident knowing no funny business is going on. Rerouter's privacy policy explicitly states that all URLs are converted on-device and that this app contains no loggers, trackers, etc.")
+                                                Text("Rerouter works by intercepting requests to visit Google Maps, and *rerouting* you to Apple Maps instead on the fly. To accomplish that, Rerouter needs permission to see these requests as you make them.\n\nYou can be confident that there isn't any funny business happening behind the scenes. As the privacy policy explicitly states, all processing happens on your device. There are no trackers, no loggers, nothing. For those more technical, you can even browse the source code yourself by tapping the link in the **About** page.")
                                             }.padding(.horizontal, 20)
                                                 .padding(.top, 20)
                                             .navigationBarTitle(Text("Allowing Access"), displayMode: .inline)

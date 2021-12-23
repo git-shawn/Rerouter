@@ -25,10 +25,9 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         if messageDictionary?[SFExtensionMessageKey] == "getDefaults" {
             
             let automatic = defaults?.bool(forKey: "automatic") ?? true
-            let openableLinks = defaults?.integer(forKey: "openableLinks") ?? 0
             
             let response = NSExtensionItem()
-            response.userInfo = [ SFExtensionMessageKey: [ "automatic": automatic, "openableLinks": openableLinks ] ]
+            response.userInfo = [ SFExtensionMessageKey: [ "automatic": automatic ] ]
             context.completeRequest(returningItems: [response], completionHandler: nil)
         }
     }

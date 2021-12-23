@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2915C984271A08D60005CF7C /* GuideModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915C983271A08D60005CF7C /* GuideModal.swift */; };
 		295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D12E5272AF2E200C04C7A /* AboutView.swift */; };
 		295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE760270E31B000B30A07 /* AppDelegate.swift */; };
 		295EE767270E31B000B30A07 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 295EE766270E31B000B30A07 /* Icon.png */; };
@@ -17,7 +16,6 @@
 		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		295EE780270E31B500B30A07 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */; };
 		295EE783270E31B600B30A07 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 295EE782270E31B500B30A07 /* _locales */; };
-		295EE785270E31B600B30A07 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 295EE784270E31B600B30A07 /* images */; };
 		295EE787270E31B600B30A07 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 295EE786270E31B600B30A07 /* manifest.json */; };
 		295EE789270E31B600B30A07 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 295EE788270E31B600B30A07 /* background.js */; };
 		295EE78B270E31B600B30A07 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 295EE78A270E31B600B30A07 /* content.js */; };
@@ -29,9 +27,9 @@
 		295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE79F270E4A6000B30A07 /* ExtensionModal.swift */; };
 		295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */; };
 		295EE7A5270E4DED00B30A07 /* InlinePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */; };
+		2965496B2774291600E2AFE3 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 2965496A2774291600E2AFE3 /* images */; };
+		2965496C27742A1000E2AFE3 /* rerouterIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 296549392774271700E2AFE3 /* rerouterIcon.svg */; };
 		29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA45E82729980500B57392 /* ActivityExtension.swift */; };
-		29CA45EB27299EFF00B57392 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA45EA27299EFF00B57392 /* PreferencesView.swift */; };
-		29E24E942729E65C004559D1 /* chevron.svg in Resources */ = {isa = PBXBuildFile; fileRef = 29E24E932729E65B004559D1 /* chevron.svg */; };
 		29E24E98272A0789004559D1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E24E95272A0749004559D1 /* StoreManager.swift */; };
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
@@ -61,7 +59,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2915C983271A08D60005CF7C /* GuideModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideModal.swift; sourceTree = "<group>"; };
 		295D12E5272AF2E200C04C7A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		295EE75D270E31B000B30A07 /* Rerouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rerouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295EE760270E31B000B30A07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +71,6 @@
 		295EE77A270E31B500B30A07 /* Rerouter Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rerouter Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		295EE782270E31B500B30A07 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
-		295EE784270E31B600B30A07 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		295EE786270E31B600B30A07 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		295EE788270E31B600B30A07 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		295EE78A270E31B600B30A07 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
@@ -86,9 +82,9 @@
 		295EE79F270E4A6000B30A07 /* ExtensionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionModal.swift; sourceTree = "<group>"; };
 		295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyModal.swift; sourceTree = "<group>"; };
 		295EE7A4270E4DED00B30A07 /* InlinePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlinePhotoView.swift; sourceTree = "<group>"; };
+		296549392774271700E2AFE3 /* rerouterIcon.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = rerouterIcon.svg; sourceTree = "<group>"; };
+		2965496A2774291600E2AFE3 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		29CA45E82729980500B57392 /* ActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityExtension.swift; sourceTree = "<group>"; };
-		29CA45EA27299EFF00B57392 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		29E24E932729E65B004559D1 /* chevron.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chevron.svg; path = ../../../../Downloads/chevron.svg; sourceTree = "<group>"; };
 		29E24E95272A0749004559D1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
@@ -119,8 +115,8 @@
 			children = (
 				29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */,
 				29FC6CFB27210082001B6719 /* Rerouter.entitlements */,
-				295EE75F270E31B000B30A07 /* Reroute */,
-				295EE77E270E31B500B30A07 /* Reroute Extension */,
+				295EE75F270E31B000B30A07 /* Rerouter */,
+				295EE77E270E31B500B30A07 /* Rerouter Extension */,
 				295EE75E270E31B000B30A07 /* Products */,
 				29E24E99272A08B1004559D1 /* Frameworks */,
 			);
@@ -135,7 +131,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		295EE75F270E31B000B30A07 /* Reroute */ = {
+		295EE75F270E31B000B30A07 /* Rerouter */ = {
 			isa = PBXGroup;
 			children = (
 				29E24E97272A075B004559D1 /* Helpers */,
@@ -150,7 +146,7 @@
 				295EE775270E31B500B30A07 /* Info.plist */,
 				295EE762270E31B000B30A07 /* Resources */,
 			);
-			path = Reroute;
+			path = Rerouter;
 			sourceTree = "<group>";
 		};
 		295EE762270E31B000B30A07 /* Resources */ = {
@@ -161,23 +157,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		295EE77E270E31B500B30A07 /* Reroute Extension */ = {
+		295EE77E270E31B500B30A07 /* Rerouter Extension */ = {
 			isa = PBXGroup;
 			children = (
 				295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */,
 				295EE792270E31B600B30A07 /* Info.plist */,
 				295EE781270E31B500B30A07 /* Resources */,
 			);
-			path = "Reroute Extension";
+			path = "Rerouter Extension";
 			sourceTree = "<group>";
 		};
 		295EE781270E31B500B30A07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				295EE782270E31B500B30A07 /* _locales */,
-				295EE784270E31B600B30A07 /* images */,
+				2965496A2774291600E2AFE3 /* images */,
+				296549392774271700E2AFE3 /* rerouterIcon.svg */,
 				295EE786270E31B600B30A07 /* manifest.json */,
-				29E24E932729E65B004559D1 /* chevron.svg */,
 				295EE788270E31B600B30A07 /* background.js */,
 				295EE78A270E31B600B30A07 /* content.js */,
 				295EE78C270E31B600B30A07 /* popup.html */,
@@ -191,9 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				295EE79F270E4A6000B30A07 /* ExtensionModal.swift */,
-				2915C983271A08D60005CF7C /* GuideModal.swift */,
 				295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */,
-				29CA45EA27299EFF00B57392 /* PreferencesView.swift */,
 				295D12E5272AF2E200C04C7A /* AboutView.swift */,
 			);
 			path = Views;
@@ -319,10 +313,10 @@
 				295EE789270E31B600B30A07 /* background.js in Resources */,
 				295EE78F270E31B600B30A07 /* popup.css in Resources */,
 				295EE78D270E31B600B30A07 /* popup.html in Resources */,
-				295EE785270E31B600B30A07 /* images in Resources */,
 				295EE787270E31B600B30A07 /* manifest.json in Resources */,
+				2965496C27742A1000E2AFE3 /* rerouterIcon.svg in Resources */,
+				2965496B2774291600E2AFE3 /* images in Resources */,
 				295EE783270E31B600B30A07 /* _locales in Resources */,
-				29E24E942729E65C004559D1 /* chevron.svg in Resources */,
 				295EE78B270E31B600B30A07 /* content.js in Resources */,
 				295EE791270E31B600B30A07 /* popup.js in Resources */,
 			);
@@ -340,11 +334,9 @@
 				295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
 				295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */,
-				29CA45EB27299EFF00B57392 /* PreferencesView.swift in Sources */,
 				29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				29E24E98272A0789004559D1 /* StoreManager.swift in Sources */,
-				2915C984271A08D60005CF7C /* GuideModal.swift in Sources */,
 				295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,19 +501,21 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Reroute Extension/Info.plist";
+				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rerouter Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -533,7 +527,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -542,19 +536,21 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Reroute Extension/Info.plist";
+				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rerouter Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -566,7 +562,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
@@ -578,11 +574,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Reroute/Info.plist;
+				INFOPLIST_FILE = Rerouter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -593,7 +590,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -618,11 +616,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Reroute/Info.plist;
+				INFOPLIST_FILE = Rerouter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -633,7 +632,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
