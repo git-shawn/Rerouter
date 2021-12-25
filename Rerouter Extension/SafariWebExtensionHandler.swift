@@ -24,10 +24,10 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         let messageDictionary = message as? [String: String]
         if messageDictionary?[SFExtensionMessageKey] == "getDefaults" {
             
-            let automatic = defaults?.bool(forKey: "automatic") ?? true
+            let isManual = defaults?.bool(forKey: "manual") ?? false
             
             let response = NSExtensionItem()
-            response.userInfo = [ SFExtensionMessageKey: [ "automatic": automatic ] ]
+            response.userInfo = [ SFExtensionMessageKey: [ "manual": isManual ] ]
             context.completeRequest(returningItems: [response], completionHandler: nil)
         }
     }

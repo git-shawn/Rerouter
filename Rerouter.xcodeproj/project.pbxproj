@@ -32,6 +32,9 @@
 		29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA45E82729980500B57392 /* ActivityExtension.swift */; };
 		29E24E98272A0789004559D1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E24E95272A0749004559D1 /* StoreManager.swift */; };
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
+		29F367EC27778A860065008A /* landing.html in Resources */ = {isa = PBXBuildFile; fileRef = 29F367EB27778A860065008A /* landing.html */; };
+		29F367EE277795990065008A /* landing.js in Resources */ = {isa = PBXBuildFile; fileRef = 29F367ED277795990065008A /* landing.js */; };
+		29F367F22777ABF20065008A /* MapWarningModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F367F12777ABF20065008A /* MapWarningModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,9 @@
 		29CA45E82729980500B57392 /* ActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityExtension.swift; sourceTree = "<group>"; };
 		29E24E95272A0749004559D1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		29F367EB27778A860065008A /* landing.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = landing.html; sourceTree = "<group>"; };
+		29F367ED277795990065008A /* landing.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = landing.js; sourceTree = "<group>"; };
+		29F367F12777ABF20065008A /* MapWarningModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapWarningModal.swift; sourceTree = "<group>"; };
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
 		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +185,8 @@
 				295EE78C270E31B600B30A07 /* popup.html */,
 				295EE78E270E31B600B30A07 /* popup.css */,
 				295EE790270E31B600B30A07 /* popup.js */,
+				29F367EB27778A860065008A /* landing.html */,
+				29F367ED277795990065008A /* landing.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			children = (
 				295EE79F270E4A6000B30A07 /* ExtensionModal.swift */,
 				295EE7A2270E4AB000B30A07 /* PrivacyModal.swift */,
+				29F367F12777ABF20065008A /* MapWarningModal.swift */,
 				295D12E5272AF2E200C04C7A /* AboutView.swift */,
 			);
 			path = Views;
@@ -310,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F367EE277795990065008A /* landing.js in Resources */,
 				295EE789270E31B600B30A07 /* background.js in Resources */,
 				295EE78F270E31B600B30A07 /* popup.css in Resources */,
 				295EE78D270E31B600B30A07 /* popup.html in Resources */,
@@ -318,6 +328,7 @@
 				2965496B2774291600E2AFE3 /* images in Resources */,
 				295EE783270E31B600B30A07 /* _locales in Resources */,
 				295EE78B270E31B600B30A07 /* content.js in Resources */,
+				29F367EC27778A860065008A /* landing.html in Resources */,
 				295EE791270E31B600B30A07 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +343,7 @@
 				295EE7A5270E4DED00B30A07 /* InlinePhotoView.swift in Sources */,
 				295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */,
 				295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */,
+				29F367F22777ABF20065008A /* MapWarningModal.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
 				295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */,
 				29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */,
@@ -515,7 +527,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -550,7 +562,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -591,7 +603,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -633,7 +645,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

@@ -99,7 +99,7 @@ struct ExtensionModal: View {
                     }
                 })
             })
-        }
+        }.navigationViewStyle(.stack)
     }
 }
 
