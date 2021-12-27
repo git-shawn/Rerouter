@@ -6,7 +6,7 @@ function readyButtons() {
     console.log(params)
     document.getElementById("amapslink").href = params[0];
     document.getElementById("gmaps").onclick = function() {
-        window.location.replace(params[1]+"reroute=true");
+        window.location.replace(params[1]);
     };
 }
 readyButtons()

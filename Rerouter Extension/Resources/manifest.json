@@ -40,7 +40,6 @@
         "tabs",
         "declarativeNetRequest",
         "nativeMessaging",
-        "webNavigation",
-        "storage"
+        "webNavigation"
     ]
 }
