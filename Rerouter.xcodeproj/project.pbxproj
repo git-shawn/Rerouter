@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2905E1F927834480002B6D7A /* Rerouter App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2905E1F827834480002B6D7A /* Rerouter App.swift */; };
 		295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D12E5272AF2E200C04C7A /* AboutView.swift */; };
-		295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE760270E31B000B30A07 /* AppDelegate.swift */; };
 		295EE767270E31B000B30A07 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 295EE766270E31B000B30A07 /* Icon.png */; };
-		295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE76A270E31B000B30A07 /* SceneDelegate.swift */; };
 		295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */; };
-		295EE773270E31B000B30A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE771270E31B000B30A07 /* Main.storyboard */; };
-		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		295EE780270E31B500B30A07 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */; };
 		295EE783270E31B600B30A07 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 295EE782270E31B500B30A07 /* _locales */; };
 		295EE787270E31B600B30A07 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 295EE786270E31B600B30A07 /* manifest.json */; };
@@ -62,13 +60,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2905E1F827834480002B6D7A /* Rerouter App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter App.swift"; sourceTree = "<group>"; };
 		295D12E5272AF2E200C04C7A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		295EE75D270E31B000B30A07 /* Rerouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rerouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		295EE760270E31B000B30A07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295EE766270E31B000B30A07 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		295EE76A270E31B000B30A07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		295EE76F270E31B000B30A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		295EE772270E31B000B30A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		295EE774270E31B500B30A07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		295EE775270E31B500B30A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		295EE77A270E31B500B30A07 /* Rerouter Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rerouter Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,11 +139,9 @@
 				29E24E97272A075B004559D1 /* Helpers */,
 				29CA615A270E60A600935190 /* Components */,
 				295EE7A1270E4A6B00B30A07 /* Views */,
-				295EE760270E31B000B30A07 /* AppDelegate.swift */,
-				295EE76A270E31B000B30A07 /* SceneDelegate.swift */,
+				2905E1F827834480002B6D7A /* Rerouter App.swift */,
 				295EE79D270E4A3300B30A07 /* ContentView.swift */,
 				295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */,
-				295EE771270E31B000B30A07 /* Main.storyboard */,
 				295EE774270E31B500B30A07 /* Assets.xcassets */,
 				295EE775270E31B500B30A07 /* Info.plist */,
 				295EE762270E31B000B30A07 /* Resources */,
@@ -309,7 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				295EE767270E31B000B30A07 /* Icon.png in Resources */,
-				295EE773270E31B000B30A07 /* Main.storyboard in Resources */,
 				295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */,
 				295EE793270E31B600B30A07 /* Assets.xcassets in Resources */,
 			);
@@ -341,11 +334,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				295EE7A5270E4DED00B30A07 /* InlinePhotoView.swift in Sources */,
-				295EE761270E31B000B30A07 /* AppDelegate.swift in Sources */,
+				2905E1F927834480002B6D7A /* Rerouter App.swift in Sources */,
 				295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */,
 				29F367F22777ABF20065008A /* MapWarningModal.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
-				295EE76B270E31B000B30A07 /* SceneDelegate.swift in Sources */,
 				29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				29E24E98272A0789004559D1 /* StoreManager.swift in Sources */,
@@ -366,7 +358,6 @@
 /* Begin PBXTargetDependency section */
 		295EE77D270E31B500B30A07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilter = ios;
 			target = 295EE779270E31B500B30A07 /* Rerouter Extension */;
 			targetProxy = 295EE77C270E31B500B30A07 /* PBXContainerItemProxy */;
 		};
@@ -379,14 +370,6 @@
 				295EE76F270E31B000B30A07 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		295EE771270E31B000B30A07 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				295EE772270E31B000B30A07 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -520,14 +503,13 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Rerouter Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.6;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -535,11 +517,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -555,14 +538,13 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Rerouter Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.6;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -570,11 +552,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -594,7 +577,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -603,7 +585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.6;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -612,11 +594,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -636,7 +619,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -645,7 +627,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.6;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -654,11 +636,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shwndvs.Rerouter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};

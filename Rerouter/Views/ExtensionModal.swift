@@ -11,7 +11,11 @@ struct ExtensionModal: View {
     @Binding var showExtensionModal: Bool
     @State private var showSheet: Bool = false
     @State var index = 0
+    #if targetEnvironment(macCatalyst)
+    var images = ["catext1", "catext2", "catext3", "catext4", "catext5"]
+    #else
     var images = ["safext1", "safext2", "safext3", "safext4", "safext5"]
+    #endif
     
     var body: some View {
         NavigationView {
@@ -29,17 +33,17 @@ struct ExtensionModal: View {
                         }.padding(10)
                         Group {
                             Group {
-                                #if os(iOS)
-                                Label("Open the Settings App", systemImage: "1.circle")
-                                Label("Tap Safari", systemImage: "2.circle")
-                                Label("Tap Extensions", systemImage: "3.circle")
-                                Label("Tap Rerouter", systemImage: "4.circle")
-                                Label("Turn Rerouter On", systemImage: "5.circle")
-                                #else
+                                #if targetEnvironment(macCatalyst)
                                 Label("Open Safari", systemImage: "1.circle")
                                 Label("Select Safari > Preferences from the Menu Bar", systemImage: "2.circle")
                                 Label("Click on Extensions", systemImage: "3.circle")
                                 Label("Click on Rerouter", systemImage: "4.circle")
+                                Label("Turn Rerouter On", systemImage: "5.circle")
+                                #else
+                                Label("Open the Settings App", systemImage: "1.circle")
+                                Label("Tap Safari", systemImage: "2.circle")
+                                Label("Tap Extensions", systemImage: "3.circle")
+                                Label("Tap Rerouter", systemImage: "4.circle")
                                 Label("Turn Rerouter On", systemImage: "5.circle")
                                 #endif
                             }
@@ -83,6 +87,7 @@ struct ExtensionModal: View {
                         }.padding(.horizontal, 20)
                     }
                 }.frame(maxWidth: 533)
+                .padding(.bottom)
                 Spacer()
             }
             .navigationBarTitle(Text("Safari Extension"), displayMode: .inline)

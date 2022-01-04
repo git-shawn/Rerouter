@@ -19,6 +19,7 @@ function redirectPage(details) {
         // If the link is for map directions, parse it.
         if ((details.url).includes('dir')) {
             var address = (details.url).split('/maps/').pop();
+            
             address = address.split("/")[2];
             redirectUrl = "http://maps.apple.com/?daddr="+address
 
@@ -70,8 +71,12 @@ function filterTabs(tab) {
     }
 }
 
+function onError(error) {
+    console.log(error)
+}
+
 // Called when a user attemps to navigate to a gmaps link.
 browser.webNavigation.onBeforeNavigate.addListener(redirectPage, filter);
 
 //Called when a user opens a gmaps link externally.
-browser.tabs.onCreated.addListener(filterTabs);
+browser.webNavigation.onCompleted.addListener(redirectPage, filter);

@@ -23,7 +23,7 @@ struct AboutView: View {
                         Text("Rerouter")
                             .font(.title2)
                             .bold()
-                        Text("© 2021 Shawn Davis")
+                        Text("© 2022 Shawn Davis")
                             .font(.subheadline)
                     }
                 }

@@ -43,6 +43,11 @@ struct PagingView<Content>: View where Content: View {
         self.maxIndex = maxIndex
         self.content = content
     }
+    
+    #if targetEnvironment(macCatalyst)
+    @State private var backHover = false
+    @State private var nextHover = false
+    #endif
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -70,6 +75,51 @@ struct PagingView<Content>: View where Content: View {
                         }
                     }
                 )
+                #if targetEnvironment(macCatalyst)
+                VStack {
+                    Spacer()
+                    HStack(alignment: .center) {
+                        Button(action: {
+                            if (index > 0) {
+                                index -= 1;
+                            } else {
+                                index = maxIndex;
+                            }
+                        }, label: {
+                            Label("Back", systemImage: "arrow.backward.circle.fill")
+                                .font(.system(size: 48))
+                                .symbolRenderingMode(.hierarchical)
+                                .labelStyle(.iconOnly)
+                        })
+                            .foregroundColor(.primary)
+                            .opacity(backHover ? 1 : 0.3)
+                            .onHover(perform: {hovering in
+                                backHover = hovering
+                            })
+                        Spacer()
+                        Button(action: {
+                            if (index < maxIndex) {
+                                index += 1;
+                            } else {
+                                index = 0;
+                            }
+                        }, label: {
+                            Label("Forward", systemImage: "arrow.forward.circle.fill")
+                                .font(.system(size: 48))
+                                .symbolRenderingMode(.hierarchical)
+                                .labelStyle(.iconOnly)
+                        })
+                            .foregroundColor(.primary)
+                            .opacity(nextHover ? 1 : 0.3)
+                            .onHover(perform: {hovering in
+                                nextHover = hovering
+                            })
+                    }
+                    .padding(.top)
+                    .padding(.horizontal)
+                    Spacer()
+                }
+                #endif
             }
             .clipped()
 
@@ -96,12 +146,17 @@ struct PagingView<Content>: View where Content: View {
 struct PageControl: View {
     @Binding var index: Int
     let maxIndex: Int
+    #if targetEnvironment(macCatalyst)
+    let circleColor: Color = .primary
+    #else
+    let circleColor: Color = .accentColor
+    #endif
 
     var body: some View {
         HStack(spacing: 8) {
             ForEach(0...maxIndex, id: \.self) { index in
                 Circle()
-                    .fill(index == self.index ? .accentColor : Color.gray)
+                    .fill(index == self.index ? circleColor : Color.gray)
                     .frame(width: 8, height: 8)
                     .opacity(0.9)
             }
