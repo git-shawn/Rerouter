@@ -2,6 +2,8 @@
 
 Searching for places, like parks or restaurants, with Google can be a huge pain on iOS if you don't use Google Maps. That's because pressing "directions" traps you in a goofy webview of Google Maps. This extension solves that headache by automatically opening Google Maps directions in Apple Maps.
 
+Available for iOS and macOS.
+
 [**Download Here!**](https://apps.apple.com/us/app/id1589151155)
 
 ## Privacy 🕵️
