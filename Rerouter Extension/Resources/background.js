@@ -2,10 +2,7 @@
 const filter = {
   url:
   [
-    {urlPrefix: "https://www.google.com/maps"},
-    {urlPrefix: "http://www.google.com/maps"},
-    {urlPrefix: "https://maps.google.com"},
-    {urlPrefix: "http://maps.google.com"}
+   {urlMatches: "(http(s?):\/\/)?((maps\.google\.[a-z]{1,}\/)|((www\.)?google\.[a-z]{1,}\/maps\/)|(goo.gl\/maps\/))+.*"}
   ]
 }
 
@@ -63,11 +60,14 @@ function redirectPage(details) {
     });
 }
 
+// Match the URL against the gmaps regex.
 function filterTabs(tab) {
+    let regex = /^(http(s?):\/\/)?((maps\.google\.[a-z]{1,}\/)|((www\.)?google\.[a-z]{1,}\/maps\/)|(goo.gl\/maps\/))+.*/
     // Ensure this tab is a Google Maps page
-    if (tab.url.startsWith("https://www.google.com/maps") || tab.url.startsWith("http://www.google.com/maps") || "https://maps.google.com") {
+    if (regex.test(tab.url)) {
+        console.log("regex passed for " + tab.url)
         // Redirect it
-          redirectPage(tab)
+        redirectPage(tab)
     }
 }
 
@@ -78,5 +78,5 @@ function onError(error) {
 // Called when a user attemps to navigate to a gmaps link.
 browser.webNavigation.onBeforeNavigate.addListener(redirectPage, filter);
 
-//Called when a user opens a gmaps link externally.
-browser.webNavigation.onCompleted.addListener(redirectPage, filter);
+//Called when a user opens a gmaps link from outside of the browser.
+browser.tabs.onCreated.addListener(filterTabs)
