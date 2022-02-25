@@ -95,11 +95,43 @@ struct ContentView: View {
                 }
             }.navigationTitle("Rerouter")
         }.navigationViewStyle(.stack)
+        .withHostingWindow { window in
+            #if targetEnvironment(macCatalyst)
+            if let titlebar = window?.windowScene?.titlebar {
+                titlebar.titleVisibility = .hidden
+                titlebar.toolbar = nil
+            }
+            #endif
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+// Hide titlebar on macOS
+// From John at https://stackoverflow.com/a/65243349
+
+extension View {
+    fileprivate func withHostingWindow(_ callback: @escaping (UIWindow?) -> Void) -> some View {
+        self.background(HostingWindowFinder(callback: callback))
+    }
+}
+
+fileprivate struct HostingWindowFinder: UIViewRepresentable {
+    var callback: (UIWindow?) -> ()
+
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        DispatchQueue.main.async { [weak view] in
+            self.callback(view?.window)
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {
     }
 }

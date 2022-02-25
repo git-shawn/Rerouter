@@ -12,18 +12,18 @@ struct Rerouter: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear(perform: {
-                    StoreManager.shared.startObserving()
-                    #if targetEnvironment(macCatalyst)
-                    UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.forEach { windowScene in
-                        windowScene.sizeRestrictions?.minimumSize = CGSize(width: 500, height: 600)
-                        windowScene.sizeRestrictions?.maximumSize = CGSize(width: 500, height: 600)
-                    }
-                    #endif
-                })
-                .onDisappear(perform: {
-                    StoreManager.shared.stopObserving()
-                })
+            .onAppear(perform: {
+                StoreManager.shared.startObserving()
+                #if targetEnvironment(macCatalyst)
+                UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.forEach { windowScene in
+                    windowScene.sizeRestrictions?.minimumSize = CGSize(width: 500, height: 650)
+                    windowScene.sizeRestrictions?.maximumSize = CGSize(width: 500, height: 650)
+                }
+                #endif
+            })
+            .onDisappear(perform: {
+                StoreManager.shared.stopObserving()
+            })
         }
         #if targetEnvironment(macCatalyst)
         .commands {

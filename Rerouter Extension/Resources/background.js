@@ -48,13 +48,14 @@ function redirectPage(details) {
         if (!response.manual) {
             // If automatic mode, update the tab to the new Apple Mapss link.
             browser.tabs.update({url: redirectUrl});
+//            browser.tabs.sendMessage(details.tabId, {redirect: redirectUrl});
         } else {
             // If manual mode, pass the parsed links to Rerouter's landing page then navigate.
             if (details.url.includes("reroute=true") == false) {
                 var landingURL = browser.runtime.getURL("landing.html");
                 landingURL = landingURL + "?aLink=" + redirectUrl + "&gLink=" + details.url + "&reroute=true";
                 console.log(landingURL)
-                browser.tabs.update({url: landingURL});
+                browser.tabs.update({url: landingURL, loadReplace: true});
             }
         }
     });
