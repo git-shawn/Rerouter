@@ -69,19 +69,30 @@ function redirectPage(details) {
 // Store the url to be changed to prevent infinite reloads
 var previousURL = "";
 
-// Master regex that determines what is and is not a Google maps link
-const regex = /(http(s?):\/\/)?((maps\.google\.[a-z]{1,}\/)|((www\.)?google\.[a-z]{1,}\/maps\/)|(goo.gl\/maps\/))+.*/;
+// True if the popup requests that the extension pause.
+var shouldPause = false;
 
-//Called when a user opens a gmaps link from outside of the browser.
+// Determines if URL valid for Google Maps.
+// Based on this answer by fejese on SO: https://stackoverflow.com/a/14834961
+const regex = /^https?\:\/\/(www\.|maps\.)?google(\.[a-z]+){1,2}\/maps\//;
+
+// Listen for messages
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log("Extension request", request.action);
+    if (request.action == "getPauseStatus") {
+        sendResponse({ response: `${shouldPause}` });
+    } else if (request.action == "unpause") {
+        shouldPause = false;
+    } else if (request.action == "pause") {
+        shouldPause = true;
+    }
+});
+
 browser.tabs.onUpdated.addListener(function(tabid, changeInfo, tab) {
-    if ((changeInfo.status || tab.status) == 'complete' && tab.url != undefined && tab.url != previousURL) {
+    if ((changeInfo.status || tab.status) == 'complete' && tab.url != undefined && tab.url != previousURL && !shouldPause) {
         previousURL = tab.url;
         if (regex.test(tab.url)) {
             redirectPage(tab);
-        } else if ((tab.url).includes("cid")) {
-            setTimeout(function() {
-                browser.tabs.reload();
-            }, 5000);
         }
     }
 });

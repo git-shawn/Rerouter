@@ -4,7 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="module" src="popup.js"></script>
+    <style>
+        html {
+            color: #2c2c2c;
+        }
+        body {
+            padding: 1em;
+            margin: 0 auto;
+            min-width: 250px;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        p {
+            transition: all .2s ease-in-out;
+        }
+        h1 {
+            font: -apple-system-title1;
+            font-weight: 700;
+            margin: 0px;
+        }
+        button {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            border: none;
+            font-size: 1em;
+            background-color: #3A93FF;
+            color: #ffffff;
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+        }
+        button:active {
+            background-color: #2185ff;
+            transform: scale(0.97);
+        }
+    </style>
 </head>
 <body>
+    <h1>Rerouter</h1>
+    <p id="pauseText">Temporarily pause Rerouter for this browser session.</p>
+    <button type="button" id="pauseBtn">Pause</button>
 </body>
 </html>
