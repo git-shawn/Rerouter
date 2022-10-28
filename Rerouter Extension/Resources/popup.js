@@ -1,28 +1,33 @@
-function toggleExtension() {
-    if (document.getElementById("pauseBtn").innerHTML == "Pause") {
-        browser.runtime.sendMessage({ action: "pause" }).then((response) => {
-            console.log("Received response: ", response);
-        });
+window.onload = function() {
+    if (localStorage.getItem('rerouter-state') == null) {
+        localStorage.setItem('rerouter-state', 'on');
+    }
+    
+    setButtons();
+    
+    var btn = document.getElementById("pauseBtn");
+    btn.onclick = togglePauseState;
+}
+
+function togglePauseState() {
+    let state = localStorage.getItem('rerouter-state');
+    if (state == 'on') {
+        localStorage.setItem('rerouter-state', 'off');
+    } else {
+        localStorage.setItem('rerouter-state', 'on');
+    }
+    setButtons();
+}
+
+function setButtons() {
+    let state = localStorage.getItem('rerouter-state');
+    
+    console.log("Pause state: " + state);
+    if (state == 'on') {
         document.getElementById("pauseBtn").innerHTML = "Enable";
         document.getElementById("pauseText").innerHTML = "Re-enable Rerouter for this browser session.";
-    } else {
-        browser.runtime.sendMessage({ action: "unpause" }).then((response) => {
-            console.log("Received response: ", response);
-        });
+    } else if (state == 'off') {
         document.getElementById("pauseBtn").innerHTML = "Pause";
         document.getElementById("pauseText").innerHTML = "Temporarily pause Rerouter for this browser session.";
     }
-}
-
-window.onload = function() {
-    var btn = document.getElementById("pauseBtn");
-    btn.onclick = toggleExtension;
-    
-    browser.runtime.sendMessage({ action: "getPauseStatus" }).then((response) => {
-        console.log("Received response: ", response.response);
-        if (response.response == "true") {
-            btn.innerHTML = "Enable";
-            document.getElementById("pauseText").innerHTML = "Re-enable Rerouter for this browser session.";
-        }
-    });
 }

@@ -16,8 +16,8 @@ struct Rerouter: App {
                 StoreManager.shared.startObserving()
                 #if targetEnvironment(macCatalyst)
                 UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.forEach { windowScene in
-                    windowScene.sizeRestrictions?.minimumSize = CGSize(width: 500, height: 750)
-                    windowScene.sizeRestrictions?.maximumSize = CGSize(width: 500, height: 750)
+                    windowScene.sizeRestrictions?.minimumSize = CGSize(width: 500, height: 850)
+                    windowScene.sizeRestrictions?.maximumSize = CGSize(width: 500, height: 850)
                 }
                 #endif
             })

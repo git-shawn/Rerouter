@@ -1,98 +1,33 @@
-// Intercept Google Maps links before they are handled, then redirect them.
-function redirectPage(details) {
-    // Check if the user has enabled automatic or manual mode.
+browser.runtime.onMessage.addListener(function(request, sender, respond) {
+    if (request.hasOwnProperty("redirect")) {
+        redirectPage(request.redirect);
+        return true;
+    }
+});
+
+function redirectPage(url) {
+    console.log("Attempting redirect for " + url);
+
     browser.runtime.sendNativeMessage("shwndvs.Rerouter", {message: "getDefaults"}, function(response) {
-        var redirectUrl = ""
-
-        // If the link is for map directions, parse it.
-        if ((details.url).includes('dir')) {
-            var address = (details.url).split('/maps/').pop();
-            
-            address = address.split("/")[2];
-            redirectUrl = "http://maps.apple.com/?daddr="+address
-        
-        // If the coordinates have been obscured behind hexadecimal code, try to parse it.
-        } else if ((details.url).includes('place//data=!')) {
-            var hexCode = (details.url).split(':').pop();
-            var hexCode = hexCode.split('?')[0];
-            let bigHex = BigInt(hexCode);
-            let cid = bigHex.toString(10);
-            
-            let rerouteNow = "https://google.com/maps?cid=" + cid;
-            browser.tabs.update({url: rerouteNow});
-            
-        // If the link is for a place or search query, parse it.
-        } else if ((details.url).includes('place') || (details.url).includes('search')) {
-            
-            var place = (details.url).split('/maps/').pop();
-            if ((details.url).includes('@')) {
-                let coordinates = (place.split("@").pop()).split("/")[0];
-
-                let lat = coordinates.split(",")[0];
-                let long = coordinates.split(",")[1];
-                let zoom = (coordinates.split(",")[2]).replace('z','');
-
-                place = place.split("/")[1];
-
-                redirectUrl = "http://maps.apple.com/?q="+place+"&sll="+lat+","+long+"&z="+zoom
+        console.log(localStorage.getItem('rerouter-state'));
+        if (url != "" && localStorage.getItem('rerouter-state') != "on") {
+            if (!response.manual) {
+                browser.tabs.executeScript({code: "document.location.href = '" + url + "';"});
+//                browser.tabs.update({url: url});
             } else {
-                // If a place has no coordinates, just go to the location itself.
-                let locTitle = place.split("/")[1];
-                redirectUrl = "http://maps.apple.com/?address=" + locTitle;
-            }
-        
-        // If the link is just loose coordinates, parse it.
-        } else {
-          let coordinates = ((details.url).split("@").pop()).split("/")[0];
-
-          let lat = coordinates.split(",")[0];
-          let long = coordinates.split(",")[1];
-          let zoom = (coordinates.split(",")[2]).replace('z','');
-
-          redirectUrl = "http://maps.apple.com/?ll="+lat+","+long+"&z="+zoom;
-        }
-        
-        if (!response.manual && redirectUrl != "") {
-            // If automatic mode, update the tab to the new Apple Mapss link.
-            browser.tabs.update({url: redirectUrl});
-        } else {
-            // If manual mode, pass the parsed links to Rerouter's landing page then navigate.
-            if (details.url.includes("reroute=true") == false && redirectUrl != "") {
-                var landingURL = browser.runtime.getURL("landing.html");
-                landingURL = landingURL + "?aLink=" + redirectUrl + "&gLink=" + details.url + "&reroute=true";
-                browser.tabs.update({url: landingURL});
+                injectManualBanner(url);
             }
         }
     });
 }
 
-// Store the url to be changed to prevent infinite reloads
-var previousURL = "";
+function injectAutoLink(redirectUrl) {
+    
+}
 
-// True if the popup requests that the extension pause.
-var shouldPause = false;
-
-// Determines if URL valid for Google Maps.
-// Based on this answer by fejese on SO: https://stackoverflow.com/a/14834961
-const regex = /^https?\:\/\/(www\.|maps\.)?google(\.[a-z]+){1,2}\/maps\//;
-
-// Listen for messages
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log("Extension request", request.action);
-    if (request.action == "getPauseStatus") {
-        sendResponse({ response: `${shouldPause}` });
-    } else if (request.action == "unpause") {
-        shouldPause = false;
-    } else if (request.action == "pause") {
-        shouldPause = true;
-    }
-});
-
-browser.tabs.onUpdated.addListener(function(tabid, changeInfo, tab) {
-    if ((changeInfo.status || tab.status) == 'complete' && tab.url != undefined && tab.url != previousURL && !shouldPause) {
-        previousURL = tab.url;
-        if (regex.test(tab.url)) {
-            redirectPage(tab);
-        }
-    }
-});
+function injectManualBanner(redirectUrl) {
+    // The string '$AMAPLINK' should be replaced with the correct redirect link.
+    let manualOverlayTemplate = `<div style=" font-family: -apple-system, BlinkMacSystemFont!important; background-color: #fff; position: absolute; margin-left: auto; margin-right: auto; bottom: 0; left: 0; right: 0; text-align: center; width: 100%; max-width: 450px; border-radius: 2rem 2rem 0px 0px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; z-index: 99999;" id="f4c83fad-b326-483e-946d-1a31bdeed4e5" > <div style=" height: 90%; display: flex; flex: no-wrap; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px; " > <div> <div style="color: #1c212f; font-family: -apple-system, BlinkMacSystemFont!important; font-size: 42px; margin: 0; font-weight: 700;">Rerouter</div> <p style="color: #515866; padding: 1rem 2rem"> To perform this automatically, disable "Manual" mode in the Rerouter app. </p>  <br /> <br /> </div> <div> <a style=" text-decoration: none; font-size: 20px; font-weight: 500; padding: 15px 64px; background-color: #3a93ff; color: #fff; border-radius: 8px; " onmouseover="this.style.backgroundColor='#0073d7'" onmouseout="this.style.backgroundColor='#3a93ff'" href="$APMAPLINK" >Open in Maps</a > <br /> <br /> <br /> <a style="text-decoration: none; font-size: 20px; color: #515866" href="javascript:document.getElementById('f4c83fad-b326-483e-946d-1a31bdeed4e5').style.display = 'none';" onmouseover="this.style.color='#383D47'" onmouseout="this.style.color='#515866'" >Cancel</a > </div> </div> </div>`
+    let manualOverlay = manualOverlayTemplate.replace("$APMAPLINK", redirectUrl);
+    browser.tabs.executeScript({code: "if (document.body.contains(document.getElementById('f4c83fad-b326-483e-946d-1a31bdeed4e5'))) { document.getElementById.innerHTML =`"+manualOverlay+"` } else { document.body.insertAdjacentHTML('beforeEnd',` "+manualOverlay+"`);}"});
+}

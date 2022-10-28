@@ -11,14 +11,12 @@
 		295D12E6272AF2E200C04C7A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D12E5272AF2E200C04C7A /* AboutView.swift */; };
 		295EE767270E31B000B30A07 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 295EE766270E31B000B30A07 /* Icon.png */; };
 		295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */; };
-		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		295EE780270E31B500B30A07 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */; };
 		295EE783270E31B600B30A07 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 295EE782270E31B500B30A07 /* _locales */; };
 		295EE787270E31B600B30A07 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 295EE786270E31B600B30A07 /* manifest.json */; };
 		295EE789270E31B600B30A07 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 295EE788270E31B600B30A07 /* background.js */; };
-		295EE78B270E31B600B30A07 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 295EE78A270E31B600B30A07 /* content.js */; };
 		295EE78D270E31B600B30A07 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 295EE78C270E31B600B30A07 /* popup.html */; };
-		295EE78F270E31B600B30A07 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 295EE78E270E31B600B30A07 /* popup.css */; };
 		295EE791270E31B600B30A07 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 295EE790270E31B600B30A07 /* popup.js */; };
 		295EE793270E31B600B30A07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 295EE774270E31B500B30A07 /* Assets.xcassets */; };
 		295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE79D270E4A3300B30A07 /* ContentView.swift */; };
@@ -30,9 +28,8 @@
 		29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CA45E82729980500B57392 /* ActivityExtension.swift */; };
 		29E24E98272A0789004559D1 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E24E95272A0749004559D1 /* StoreManager.swift */; };
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
-		29F367EC27778A860065008A /* landing.html in Resources */ = {isa = PBXBuildFile; fileRef = 29F367EB27778A860065008A /* landing.html */; };
-		29F367EE277795990065008A /* landing.js in Resources */ = {isa = PBXBuildFile; fileRef = 29F367ED277795990065008A /* landing.js */; };
 		29F367F22777ABF20065008A /* MapWarningModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F367F12777ABF20065008A /* MapWarningModal.swift */; };
+		CDDF2E66290AFA770097B638 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = CDDF2E65290AFA770097B638 /* content.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,15 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		295EE799270E31B600B30A07 /* Embed App Extensions */ = {
+		295EE799270E31B600B30A07 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed App Extensions */,
+				295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -72,9 +69,7 @@
 		295EE782270E31B500B30A07 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
 		295EE786270E31B600B30A07 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		295EE788270E31B600B30A07 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
-		295EE78A270E31B600B30A07 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		295EE78C270E31B600B30A07 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
-		295EE78E270E31B600B30A07 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		295EE790270E31B600B30A07 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		295EE792270E31B600B30A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		295EE79D270E4A3300B30A07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,11 +81,10 @@
 		29CA45E82729980500B57392 /* ActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityExtension.swift; sourceTree = "<group>"; };
 		29E24E95272A0749004559D1 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		29F367EB27778A860065008A /* landing.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = landing.html; sourceTree = "<group>"; };
-		29F367ED277795990065008A /* landing.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = landing.js; sourceTree = "<group>"; };
 		29F367F12777ABF20065008A /* MapWarningModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapWarningModal.swift; sourceTree = "<group>"; };
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
 		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
+		CDDF2E65290AFA770097B638 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,12 +169,9 @@
 				296549392774271700E2AFE3 /* rerouterIcon.svg */,
 				295EE786270E31B600B30A07 /* manifest.json */,
 				295EE788270E31B600B30A07 /* background.js */,
-				295EE78A270E31B600B30A07 /* content.js */,
 				295EE78C270E31B600B30A07 /* popup.html */,
-				295EE78E270E31B600B30A07 /* popup.css */,
 				295EE790270E31B600B30A07 /* popup.js */,
-				29F367EB27778A860065008A /* landing.html */,
-				29F367ED277795990065008A /* landing.js */,
+				CDDF2E65290AFA770097B638 /* content.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -231,7 +222,7 @@
 				295EE759270E31B000B30A07 /* Sources */,
 				295EE75A270E31B000B30A07 /* Frameworks */,
 				295EE75B270E31B000B30A07 /* Resources */,
-				295EE799270E31B600B30A07 /* Embed App Extensions */,
+				295EE799270E31B600B30A07 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -268,7 +259,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					295EE75C270E31B000B30A07 = {
 						CreatedOnToolsVersion = 13.0;
@@ -312,16 +303,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29F367EE277795990065008A /* landing.js in Resources */,
 				295EE789270E31B600B30A07 /* background.js in Resources */,
-				295EE78F270E31B600B30A07 /* popup.css in Resources */,
 				295EE78D270E31B600B30A07 /* popup.html in Resources */,
 				295EE787270E31B600B30A07 /* manifest.json in Resources */,
 				2965496C27742A1000E2AFE3 /* rerouterIcon.svg in Resources */,
+				CDDF2E66290AFA770097B638 /* content.js in Resources */,
 				2965496B2774291600E2AFE3 /* images in Resources */,
 				295EE783270E31B600B30A07 /* _locales in Resources */,
-				295EE78B270E31B600B30A07 /* content.js in Resources */,
-				29F367EC27778A860065008A /* landing.html in Resources */,
 				295EE791270E31B600B30A07 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +497,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.9;
+				MARKETING_VERSION = 3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -544,7 +532,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.9;
+				MARKETING_VERSION = 3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -585,7 +573,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.9;
+				MARKETING_VERSION = 3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -627,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.9;
+				MARKETING_VERSION = 3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

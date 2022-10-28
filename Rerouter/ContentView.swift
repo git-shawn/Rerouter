@@ -26,7 +26,7 @@ struct ContentView: View {
                 if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
                     Section {
                             HStack {
-                                Image(systemName: "exclamationmark.bubble.fill")
+                                Image(systemName: "exclamationmark.bubble")
                                     .font(.largeTitle)
                                 Text("Rerouter may not work as intended with Google Maps installed.\nTap for more information.")
                             }
@@ -50,7 +50,7 @@ struct ContentView: View {
                             Text("Enable Extension")
                                 .foregroundColor(.primary)
                         } icon: {
-                            Image(systemName: "puzzlepiece.extension.fill")
+                            Image(systemName: "puzzlepiece.extension")
                                 .foregroundColor(.accentColor)
                         }
                     }.sheet(
@@ -67,7 +67,7 @@ struct ContentView: View {
                             Text("Privacy Policy")
                                 .foregroundColor(.primary)
                         } icon: {
-                            Image(systemName: "hand.raised.fill")
+                            Image(systemName: "hand.raised")
                                 .foregroundColor(.accentColor)
                         }
                     }.sheet(
@@ -82,7 +82,7 @@ struct ContentView: View {
                             Text("About")
                                 .foregroundColor(.primary)
                         } icon: {
-                            Image(systemName: "info.circle.fill")
+                            Image(systemName: "info.circle")
                                 .foregroundColor(.accentColor)
                         }
                     }
@@ -90,8 +90,12 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Toggle("Reroute links manually", isOn: $isManual)
+                    Toggle("Enable manual rerouting", isOn: $isManual)
                         .tint(.accentColor)
+                        .listRowSeparator(.hidden)
+                    Text("You will be asked each time before Rerouter attempts to open a link in Maps. If you decline, you won't be asked again while on that page.")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
                 }
             }.navigationTitle("Rerouter")
         }.navigationViewStyle(.stack)

@@ -86,15 +86,16 @@ struct PagingView<Content>: View where Content: View {
                                 index = maxIndex;
                             }
                         }, label: {
-                            Label("Back", systemImage: "arrow.backward.circle.fill")
+                            Label("Back", systemImage: "chevron.compact.left")
                                 .font(.system(size: 48))
-                                .symbolRenderingMode(.hierarchical)
                                 .labelStyle(.iconOnly)
                         })
                             .foregroundColor(.primary)
-                            .opacity(backHover ? 1 : 0.3)
+                            .opacity(backHover ? 1 : 0.2)
                             .onHover(perform: {hovering in
-                                backHover = hovering
+                                withAnimation {
+                                    backHover = hovering
+                                }
                             })
                         Spacer()
                         Button(action: {
@@ -104,15 +105,17 @@ struct PagingView<Content>: View where Content: View {
                                 index = 0;
                             }
                         }, label: {
-                            Label("Forward", systemImage: "arrow.forward.circle.fill")
+                            Label("Forward", systemImage: "chevron.compact.right")
                                 .font(.system(size: 48))
-                                .symbolRenderingMode(.hierarchical)
                                 .labelStyle(.iconOnly)
                         })
                             .foregroundColor(.primary)
-                            .opacity(nextHover ? 1 : 0.3)
+                            .cornerRadius(50)
+                            .opacity(nextHover ? 1 : 0.2)
                             .onHover(perform: {hovering in
-                                nextHover = hovering
+                                withAnimation {
+                                    nextHover = hovering
+                                }
                             })
                     }
                     .padding(.top)

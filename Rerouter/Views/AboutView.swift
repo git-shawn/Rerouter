@@ -14,17 +14,27 @@ struct AboutView: View {
         List {
             Section {
                 HStack(alignment: .center, spacing: 20) {
+                    #if targetEnvironment(macCatalyst)
+                    Image("appIconAbout-Mac")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 124, height: 124)
+                    #else
                     Image("appIconAbout")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 114, height: 114)
                         .cornerRadius(20)
+                    #endif
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Rerouter")
-                            .font(.title2)
+                        Text("Rerouter!")
+                            .font(.title)
                             .bold()
                         Text("© 2022 Shawn Davis")
-                            .font(.subheadline)
+                            .font(.footnote)
+                        Text("Made with \(Image(systemName: "heart")) in Montana")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
                     }
                 }
             }.listRowBackground(Color.clear)
@@ -46,21 +56,33 @@ struct AboutView: View {
                         Text("Contact")
                             .foregroundColor(.primary)
                     } icon: {
-                        Image(systemName: "envelope.fill")
+                        Image(systemName: "envelope")
                             .foregroundColor(.accentColor)
                     }
                 }
-                Button(action: {
-                    showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
-                }) {
-                    Label {
-                        Text("Share Rerouter")
-                            .foregroundColor(.primary)
-                    } icon: {
-                        Image(systemName: "square.and.arrow.up.fill")
-                            .foregroundColor(.accentColor)
+//                if #available(iOS 16.0, *) {
+//                    ShareLink(item: "https://fromshawn.dev/rerouter.html", preview: SharePreview("Rerouter", image: Image("appIconAbout"))) {
+//                        Label {
+//                             Text("Share Rerouter")
+//                                 .foregroundColor(.primary)
+//                         } icon: {
+//                             Image(systemName: "square.and.arrow.up.fill")
+//                                 .foregroundColor(.accentColor)
+//                         }
+//                     }
+//                } else {
+                    Button(action: {
+                        showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
+                    }) {
+                        Label {
+                            Text("Share Rerouter")
+                                .foregroundColor(.primary)
+                        } icon: {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.accentColor)
+                        }
                     }
-                }
+//                }
                 Button(action: {
                     StoreManager.shared.leaveTip()
                 }) {
@@ -68,21 +90,7 @@ struct AboutView: View {
                         Text("Buy Me a Coffee")
                             .foregroundColor(.primary)
                     } icon: {
-                        Image("coffeeTip")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(3)
-                            .foregroundColor(.accentColor)
-                    }
-                }
-                Button(action: {
-                    StoreManager.shared.requestReview()
-                }) {
-                    Label {
-                        Text("Leave a Review")
-                            .foregroundColor(.primary)
-                    } icon: {
-                        Image(systemName: "star.bubble.fill")
+                        Image(systemName: "heart")
                             .foregroundColor(.accentColor)
                     }
                 }

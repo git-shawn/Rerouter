@@ -35,7 +35,7 @@ struct ExtensionModal: View {
                             Group {
                                 #if targetEnvironment(macCatalyst)
                                 Label("Open Safari", systemImage: "1.circle")
-                                Label("Select Safari > Preferences from the Menu Bar", systemImage: "2.circle")
+                                Label("Select Safari > Settings from the Menu Bar", systemImage: "2.circle")
                                 Label("Click on Extensions", systemImage: "3.circle")
                                 Label("Click on Rerouter", systemImage: "4.circle")
                                 Label("Turn Rerouter On", systemImage: "5.circle")
@@ -63,7 +63,7 @@ struct ExtensionModal: View {
                                             VStack(alignment: .leading, spacing: 20) {
                                                 Text("Why should I allow access to all websites")
                                                     .font(.system(size: 32, weight: .bold))
-                                                Text("Rerouter works by intercepting requests to visit Google Maps, and *rerouting* you to Apple Maps instead on the fly. To accomplish that, Rerouter needs permission to see these requests as you make them.\n\nYou can be confident that there isn't any funny business happening behind the scenes. As the privacy policy explicitly states, all processing happens on your device. There are no trackers, no loggers, nothing. For those more technical, you can even browse the source code yourself by tapping the link in the **About** page.")
+                                                Text("Rerouter works by intercepting requests to visit Google Maps, and *rerouting* you to Apple Maps instead on the fly. To accomplish that, Rerouter needs permission to see these requests as you make them.\n\nYou can be confident that there isn't any funny business happening behind the scenes. As the privacy policy explicitly states, all processing happens on your device. There are no trackers, no loggers, nothing.\n\nFor those more technical, you can even browse the source code yourself by tapping the link in the **About** page.")
                                             }.padding(.horizontal, 20)
                                                 .padding(.top, 20)
                                             .navigationBarTitle(Text("Allowing Access"), displayMode: .inline)
