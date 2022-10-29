@@ -26,9 +26,9 @@ function setButtons() {
     console.log("Pause state: " + state);
     if (state == 'off') {
         document.getElementById("pauseBtn").innerHTML = "Enable";
-        document.getElementById("pauseText").innerHTML = "Re-enable Rerouter for this browser session.";
+        document.getElementById("pauseText").innerHTML = "Rerouter is currently off. Google Maps links will open in the browser.";
     } else if (state == 'on') {
         document.getElementById("pauseBtn").innerHTML = "Pause";
-        document.getElementById("pauseText").innerHTML = "Temporarily pause Rerouter for this browser session.";
+        document.getElementById("pauseText").innerHTML = "Rerouter is currently on. Google Maps links will open in the Maps app.";
     }
 }

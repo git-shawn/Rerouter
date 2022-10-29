@@ -19,7 +19,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            Form {
                 /// Google Maps takes uses Universal Links to redirect web visitors to their app.
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
                 /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
@@ -94,19 +94,21 @@ struct ContentView: View {
                         .tint(.accentColor)
                         .listRowSeparator(.hidden)
                     Text("You will be asked each time before Rerouter attempts to open a link in Maps. If you decline, you won't be asked again while on that page.")
+                        .padding(.bottom, 10)
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
             }.navigationTitle("Rerouter")
-        }.navigationViewStyle(.stack)
+        }
+        .navigationViewStyle(.stack)
+        #if targetEnvironment(macCatalyst)
         .withHostingWindow { window in
-            #if targetEnvironment(macCatalyst)
             if let titlebar = window?.windowScene?.titlebar {
                 titlebar.titleVisibility = .hidden
                 titlebar.toolbar = nil
             }
-            #endif
         }
+        #endif
     }
 }
 
