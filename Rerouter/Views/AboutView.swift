@@ -14,18 +14,18 @@ struct AboutView: View {
         List {
             Section {
                 HStack(alignment: .center, spacing: 20) {
-                    #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
                     Image("appIconAbout-Mac")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 124, height: 124)
-                    #else
+#else
                     Image("appIconAbout")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 114, height: 114)
                         .cornerRadius(20)
-                    #endif
+#endif
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Rerouter!")
                             .font(.title)
@@ -38,7 +38,7 @@ struct AboutView: View {
                     }
                 }
             }.listRowBackground(Color.clear)
-            .listRowSeparator(.hidden)
+                .listRowSeparator(.hidden)
             Section {
                 Link(destination: URL(string: "https://github.com/git-shawn/Rerouter")!) {
                     Label {
@@ -60,29 +60,29 @@ struct AboutView: View {
                             .foregroundColor(.accentColor)
                     }
                 }
-//                if #available(iOS 16.0, *) {
-//                    ShareLink(item: "https://fromshawn.dev/rerouter.html", preview: SharePreview("Rerouter", image: Image("appIconAbout"))) {
-//                        Label {
-//                             Text("Share Rerouter")
-//                                 .foregroundColor(.primary)
-//                         } icon: {
-//                             Image(systemName: "square.and.arrow.up.fill")
-//                                 .foregroundColor(.accentColor)
-//                         }
-//                     }
-//                } else {
-                    Button(action: {
-                        showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
-                    }) {
-                        Label {
-                            Text("Share Rerouter")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "square.and.arrow.up")
-                                .foregroundColor(.accentColor)
-                        }
+                //                if #available(iOS 16.0, *) {
+                //                    ShareLink(item: "https://fromshawn.dev/rerouter.html", preview: SharePreview("Rerouter", image: Image("appIconAbout"))) {
+                //                        Label {
+                //                             Text("Share Rerouter")
+                //                                 .foregroundColor(.primary)
+                //                         } icon: {
+                //                             Image(systemName: "square.and.arrow.up.fill")
+                //                                 .foregroundColor(.accentColor)
+                //                         }
+                //                     }
+                //                } else {
+                Button(action: {
+                    showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
+                }) {
+                    Label {
+                        Text("Share Rerouter")
+                            .foregroundColor(.primary)
+                    } icon: {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.accentColor)
                     }
-//                }
+                }
+                //                }
                 Button(action: {
                     StoreManager.shared.leaveTip()
                 }) {

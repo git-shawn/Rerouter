@@ -19,24 +19,24 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Form {
+            List {
                 /// Google Maps takes uses Universal Links to redirect web visitors to their app.
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
                 /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
                 if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
                     Section {
-                            HStack {
-                                Image(systemName: "exclamationmark.bubble")
-                                    .font(.largeTitle)
-                                Text("Rerouter may not work as intended with Google Maps installed.\nTap for more information.")
-                            }
-                            .padding(.vertical, 6)
-                            .foregroundColor(Color("warnTxt"))
-                            .multilineTextAlignment(.leading)
-                            .onTapGesture(perform: {
-                                showMaps = true
-                            })
-                            .listRowBackground(Color("warnBkg"))
+                        HStack {
+                            Image(systemName: "exclamationmark.bubble")
+                                .font(.largeTitle)
+                            Text("Rerouter may not work as intended with Google Maps installed.\nTap for more information.")
+                        }
+                        .padding(.vertical, 6)
+                        .foregroundColor(Color("warnTxt"))
+                        .multilineTextAlignment(.leading)
+                        .onTapGesture(perform: {
+                            showMaps = true
+                        })
+                        .listRowBackground(Color("warnBkg"))
                     }.sheet(isPresented: $showMaps, content: {
                         MapWarningModal(showMapWarningModal: $showMaps)
                     })
@@ -101,14 +101,15 @@ struct ContentView: View {
             }.navigationTitle("Rerouter")
         }
         .navigationViewStyle(.stack)
-        #if targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
         .withHostingWindow { window in
             if let titlebar = window?.windowScene?.titlebar {
                 titlebar.titleVisibility = .hidden
+                titlebar.toolbarStyle = UITitlebarToolbarStyle.unifiedCompact
                 titlebar.toolbar = nil
             }
         }
-        #endif
+#endif
     }
 }
 
@@ -129,7 +130,7 @@ extension View {
 
 fileprivate struct HostingWindowFinder: UIViewRepresentable {
     var callback: (UIWindow?) -> ()
-
+    
     func makeUIView(context: Context) -> UIView {
         let view = UIView()
         DispatchQueue.main.async { [weak view] in
@@ -137,7 +138,7 @@ fileprivate struct HostingWindowFinder: UIViewRepresentable {
         }
         return view
     }
-
+    
     func updateUIView(_ uiView: UIView, context: Context) {
     }
 }
