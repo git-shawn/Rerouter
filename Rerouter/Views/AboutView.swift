@@ -60,17 +60,6 @@ struct AboutView: View {
                             .foregroundColor(.accentColor)
                     }
                 }
-                //                if #available(iOS 16.0, *) {
-                //                    ShareLink(item: "https://fromshawn.dev/rerouter.html", preview: SharePreview("Rerouter", image: Image("appIconAbout"))) {
-                //                        Label {
-                //                             Text("Share Rerouter")
-                //                                 .foregroundColor(.primary)
-                //                         } icon: {
-                //                             Image(systemName: "square.and.arrow.up.fill")
-                //                                 .foregroundColor(.accentColor)
-                //                         }
-                //                     }
-                //                } else {
                 Button(action: {
                     showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
                 }) {

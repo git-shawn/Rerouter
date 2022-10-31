@@ -30,6 +30,7 @@
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
 		29F367F22777ABF20065008A /* MapWarningModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F367F12777ABF20065008A /* MapWarningModal.swift */; };
 		CDDF2E66290AFA770097B638 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = CDDF2E65290AFA770097B638 /* content.js */; };
+		CDFD7FB5291034350066F849 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD7FB4291034350066F849 /* Delegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
 		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
 		CDDF2E65290AFA770097B638 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		CDFD7FB4291034350066F849 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				295EE7A1270E4A6B00B30A07 /* Views */,
 				2905E1F827834480002B6D7A /* Rerouter App.swift */,
 				295EE79D270E4A3300B30A07 /* ContentView.swift */,
+				CDFD7FB4291034350066F849 /* Delegates.swift */,
 				295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */,
 				295EE774270E31B500B30A07 /* Assets.xcassets */,
 				295EE775270E31B500B30A07 /* Info.plist */,
@@ -327,6 +330,7 @@
 				29F367F22777ABF20065008A /* MapWarningModal.swift in Sources */,
 				295EE7A0270E4A6000B30A07 /* ExtensionModal.swift in Sources */,
 				29CA45E92729980500B57392 /* ActivityExtension.swift in Sources */,
+				CDFD7FB5291034350066F849 /* Delegates.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				29E24E98272A0789004559D1 /* StoreManager.swift in Sources */,
 				295EE7A3270E4AB000B30A07 /* PrivacyModal.swift in Sources */,
@@ -484,7 +488,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -497,7 +501,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 3.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -519,7 +523,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -532,7 +536,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 3.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -573,7 +577,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 3.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -599,7 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -615,7 +619,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3;
+				MARKETING_VERSION = 3.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

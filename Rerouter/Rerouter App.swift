@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct Rerouter: App {
+    @Environment(\.scenePhase) var scenePhase
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -33,5 +36,35 @@ struct Rerouter: App {
             }
         }
 #endif
+        .onChange(of: scenePhase) { scenePhase in
+            switch scenePhase {
+            case .background: addQuickActions()
+            default: return
+            }
+        }
+    }
+}
+
+func addQuickActions() {
+    @AppStorage("manual", store: UserDefaults(suiteName: "group.shwndvs.Rerouter")) var isManual: Bool = false
+    
+    let manualMode = UIApplicationShortcutItem(
+        type: "manual",
+        localizedTitle: "Toggle Rerouting",
+        localizedSubtitle: "Switch to manual mode",
+        icon: UIApplicationShortcutIcon(systemImageName: "location.slash"),
+        userInfo: nil
+    )
+    let autoMode = UIApplicationShortcutItem(
+        type: "auto",
+        localizedTitle: "Toggle Rerouting",
+        localizedSubtitle: "Switch to automatic mode",
+        icon: UIApplicationShortcutIcon(systemImageName: "location"),
+        userInfo: nil
+    )
+    if (isManual) {
+        UIApplication.shared.shortcutItems = [autoMode]
+    } else {
+        UIApplication.shared.shortcutItems = [manualMode]
     }
 }

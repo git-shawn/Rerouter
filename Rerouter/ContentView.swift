@@ -19,7 +19,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            Form {
                 /// Google Maps takes uses Universal Links to redirect web visitors to their app.
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
                 /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
@@ -90,13 +90,14 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Toggle("Enable manual rerouting", isOn: $isManual)
-                        .tint(.accentColor)
-                        .listRowSeparator(.hidden)
-                    Text("You will be asked each time before Rerouter attempts to open a link in Maps. If you decline, you won't be asked again while on that page.")
-                        .padding(.bottom, 10)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
+                    VStack(alignment: .leading) {
+                        Toggle("Enable manual rerouting", isOn: $isManual)
+                            .tint(.accentColor)
+                        Text("You will be asked each time before Rerouter attempts to open a link in Maps. If you decline, you won't be asked again while on that page.")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                            .padding(.bottom, 3)
+                    }
                 }
             }.navigationTitle("Rerouter")
         }
@@ -109,9 +110,12 @@ struct ContentView: View {
                 titlebar.toolbar = nil
             }
         }
+        #else
 #endif
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
