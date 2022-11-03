@@ -9,14 +9,17 @@ handleMaps();
 window.onload = function() {
     var bodyList = document.querySelector("body");
     
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (similarity(url, document.location.href) < 0.5) {
-                url = document.location.href;
-                handleMaps();
-            }
+    if (mapsRegex.test(document.location.href)) {
+        console.log("Watching for URL mutations...")
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (similarity(url, document.location.href) < 0.5) {
+                    url = document.location.href;
+                    handleMaps();
+                }
+            });
         });
-    });
+    }
     
     var config = {
     childList: true,
