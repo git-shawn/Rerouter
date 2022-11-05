@@ -85,7 +85,7 @@ struct AboutView: View {
                 }
             }
         }
-        .navigationBarTitle("About", displayMode: .large)
+        .navigationBarTitle("About", displayMode: .inline)
         .onReceive(StoreManager.shared.purchasePublisher) { value in
             switch value {
             case .purchased:

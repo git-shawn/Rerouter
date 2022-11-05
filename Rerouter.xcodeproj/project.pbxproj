@@ -488,7 +488,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -501,7 +501,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.1;
+				MARKETING_VERSION = 3.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -523,7 +523,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -536,7 +536,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.1;
+				MARKETING_VERSION = 3.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -561,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -577,7 +577,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.1;
+				MARKETING_VERSION = 3.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -603,7 +603,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -619,7 +619,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.1;
+				MARKETING_VERSION = 3.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
