@@ -106,11 +106,9 @@ struct ContentView: View {
         .withHostingWindow { window in
             if let titlebar = window?.windowScene?.titlebar {
                 titlebar.titleVisibility = .hidden
-                titlebar.toolbarStyle = UITitlebarToolbarStyle.unifiedCompact
                 titlebar.toolbar = nil
             }
         }
-        #else
 #endif
     }
 }

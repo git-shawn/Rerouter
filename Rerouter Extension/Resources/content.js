@@ -57,10 +57,13 @@ function handleMaps() {
                 }
                 
                 if (rURL.length == 0) {
+                    historyBackWFallback("https://www.google.com")
                     aURL = "http://maps.apple.com/?ll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
                 } else if (rURL[0].includes("dir")) {
+                    historyBackWFallback("https://www.google.com")
                     aURL = "http://maps.apple.com/?daddr=" + rURL[2];
                 } else if (rURL[0].includes("place") || rURL[0].includes("search")) {
+                    historyBackWFallback("https://www.google.com")
                     aURL = "http://maps.apple.com/?q=" + rURL[1] + "&sll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
                 } else {
                     // This is called when a link isn't a place, directions, search, or coordinates. Rather, a mysterious fifth thing.
@@ -124,4 +127,18 @@ function editDistance(s1, s2) {
             costs[s2.length] = lastValue;
     }
     return costs[s2.length];
+}
+
+/// TODO: This works on macOS but not iOS
+function historyBackWFallback(fallbackUrl) {
+    fallbackUrl = fallbackUrl || '/';
+    var prevPage = window.location.href;
+
+    window.history.go(-1);
+
+    setTimeout(function(){
+        if (window.location.href == prevPage) {
+            window.location.href = fallbackUrl;
+        }
+    }, 500);
 }

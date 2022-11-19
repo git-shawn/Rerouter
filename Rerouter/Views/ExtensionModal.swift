@@ -86,9 +86,11 @@ struct ExtensionModal: View {
                             }
                         }.padding(.horizontal, 20)
                     }
-                }.frame(maxWidth: 533)
-                    .padding(.bottom)
-                Spacer()
+                }
+                .padding(.bottom)
+#if targetEnvironment(macCatalyst)
+           .frame(width: 550, height: 550)
+#endif
             }
             .navigationBarTitle(Text("Safari Extension"), displayMode: .inline)
             .toolbar(content: {

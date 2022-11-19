@@ -60,17 +60,7 @@ struct AboutView: View {
                             .foregroundColor(.accentColor)
                     }
                 }
-                Button(action: {
-                    showShareSheet(with: [URL(string: "https://fromshawn.dev/rerouter.html")!])
-                }) {
-                    Label {
-                        Text("Share Rerouter")
-                            .foregroundColor(.primary)
-                    } icon: {
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(.accentColor)
-                    }
-                }
+                ShareButton(title: "Share Rerouter", shareURL: "https://fromshawn.dev/rerouter.html")
                 //                }
                 Button(action: {
                     StoreManager.shared.leaveTip()
