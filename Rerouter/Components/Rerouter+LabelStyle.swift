@@ -34,11 +34,10 @@ struct GettingStartedLabelStyle: LabelStyle {
         } icon: {
             Image(systemName: "rectangle")
                 .font(.largeTitle)
-                .bold()
                 .hidden()
                 .overlay(content: {
                     configuration.icon
-                        .font(.largeTitle)
+                        .font(.title)
                         .bold()
                         .foregroundColor(.accentColor)
                 })

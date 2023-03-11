@@ -39,7 +39,8 @@ struct GuideView: View {
                 itemView(item: item)
                     .frame(width: 350, height: 200)
                     .cornerRadius(16)
-            }.frame(width: UIScreen.main.bounds.width, height: 200)
+                    .shadow(radius: 4)
+            }.frame(width: UIScreen.main.bounds.width, height: 250)
                 .padding()
             VStack(alignment: .leading, spacing: 16) {
                 // Instructions for macOS
@@ -61,19 +62,22 @@ struct GuideView: View {
                     Label("Select **Rerouter**", systemImage: "location.circle")
                     Label("Toggle Rerouter **on**", systemImage: "checkmark.circle")
                     Label("Enable **All Websites**", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
-                        .onTapGesture(perform: {
-                            showAllowAllAlert = true
-                        })
-                        .popover(isPresented: $showAllowAllAlert, content: {
-                            Text("Rerouter blah blah blah :(")
-                                .padding()
-                        })
                 } .labelStyle(GettingStartedLabelStyle())
 #endif
             }
             .padding()
+            .frame(minWidth: 350, alignment: .leading)
+            .background(content: {
+                Color(uiColor: UIColor.secondarySystemGroupedBackground)
+                    .cornerRadius(16)
+            })
+            .padding(.bottom)
         }
         .navigationTitle("Getting Started")
+        .background(content: {
+            Color(uiColor: UIColor.systemGroupedBackground)
+                .ignoresSafeArea()
+        })
     }
     
     @ViewBuilder
