@@ -135,13 +135,6 @@ extension StoreManager: SKProductsRequestDelegate, SKRequestDelegate {
     func request(_ request: SKRequest, didFailWithError error: Error) {
         print("Error! Could not find products: \(error)")
     }
-    
-    func requestReview() {
-        //TODO: Windows is deprecated in iOS15. Come up with an alternative to this.
-        if let windowScene = UIApplication.shared.windows.first?.windowScene {
-            SKStoreReviewController.requestReview(in: windowScene)
-        }
-    }
 }
 
 // Evaluate the purchasing process and publish progres reports as we go.

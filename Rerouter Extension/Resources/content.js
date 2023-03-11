@@ -1,144 +1,39 @@
-var url = document.location.href;
-var shouldPause = false;
-const mapsRegex = /https?:\/\/(((www|maps)\.)?(google\.).*(\/maps)|maps\.(google\.).*)/;
+console.log("Content script installed...");
+var previousUrl = '';
 
-handleMaps();
-
-// Excellent href change observer by Leonardo Ciaccio
-// https://stackoverflow.com/a/46428962
-window.onload = function() {
-    var bodyList = document.querySelector("body");
-    
-    if (mapsRegex.test(document.location.href)) {
-        console.log("Watching for URL mutations...")
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (similarity(url, document.location.href) < 0.5) {
-                    url = document.location.href;
-                    handleMaps();
-                }
-            });
-        });
-    }
-    
-    var config = {
-    childList: true,
-    subtree: true
-    };
-    
-    observer.observe(bodyList, config);
-};
-
-function handleMaps() {
-    if (mapsRegex.test(url) && !shouldPause) {
-        var rURL = url;
-        var aURL = "";
-        var coords = [];
-        let params = (new URL(url)).searchParams;
-        
-        if (params.has('daddr')) {
-            aURL = "http://maps.apple.com/?daddr=" + params.get('daddr');
-            if (params.has('saddr')) {
-                aURL += "&saddr=" + params.get('saddr');
-            }
-        } else {
-            rURL = rURL.replace(mapsRegex, "");
-            rURL = rURL.split("/data=!")[0];
-            rURL = rURL.split("/");
-            rURL.shift();
-            
-            if (rURL.length > 0) {
-                // Pop should theoretically always reveal the important coordinates.
-                if (rURL[rURL.length - 1].includes("@")) {
-                    coords = rURL.pop();
-                    coords = coords.split(",");
-                    coords[0] = coords[0].substring(1);
-                    coords[2] = coords[2].slice(0, -1);
-                }
-                
-                if (rURL.length == 0) {
-                    historyBackWFallback("https://www.google.com")
-                    aURL = "http://maps.apple.com/?ll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
-                } else if (rURL[0].includes("dir")) {
-                    historyBackWFallback("https://www.google.com")
-                    aURL = "http://maps.apple.com/?daddr=" + rURL[2];
-                } else if (rURL[0].includes("place") || rURL[0].includes("search")) {
-                    historyBackWFallback("https://www.google.com")
-                    aURL = "http://maps.apple.com/?q=" + rURL[1] + "&sll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
-                } else {
-                    // This is called when a link isn't a place, directions, search, or coordinates. Rather, a mysterious fifth thing.
-                    console.log("Unexpected URL type. Unable to reroute!")
-                    console.log(document.location.href);
-                }
-            }
-        }
-        
-        console.log("Apple maps url: " + aURL);
-        browser.runtime.sendMessage({redirect: aURL});
-    }
-}
-
-browser.runtime.onMessage.addListener(action => {
-    if (action.pause == "true") {
-        shouldPause = true;
-    } else {
-        shouldPause = false;
+// Watch for mutations in the browser's URL
+var observer = new MutationObserver(function(mutations) {
+    console.log("detecting mutations")
+    if (location.href !== previousUrl) {
+        previousUrl = location.href;
+        let newURL = attemptReroute(previousUrl);
     }
 });
 
-// Similarity coefficient between two Strings based on Levenshtein distance.
-// SO: https://stackoverflow.com/a/36566052
-function similarity(s1, s2) {
-    var longer = s1;
-    var shorter = s2;
-    if (s1.length < s2.length) {
-        longer = s2;
-        shorter = s1;
-    }
-    var longerLength = longer.length;
-    if (longerLength == 0) {
-        return 1.0;
-    }
-    return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+// Watch for literally any change at all to the DOM.
+// This is a little hacky, but currently there is no way to observe path changes in a SPA.
+const config = {subtree: true, childList: true};
+
+// Only initiate the observer if we're on a Google Maps page.
+if (mapsRegex.test(location.href)) {
+    observer.observe(document, config);
 }
 
-function editDistance(s1, s2) {
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
-    
-    var costs = new Array();
-    for (var i = 0; i <= s1.length; i++) {
-        var lastValue = i;
-        for (var j = 0; j <= s2.length; j++) {
-            if (i == 0)
-                costs[j] = j;
-            else {
-                if (j > 0) {
-                    var newValue = costs[j - 1];
-                    if (s1.charAt(i - 1) != s2.charAt(j - 1))
-                        newValue = Math.min(Math.min(newValue, lastValue),
-                                            costs[j]) + 1;
-                    costs[j - 1] = lastValue;
-                    lastValue = newValue;
-                }
+// Attempt to redirect the Google Maps URL to Apple Maps using the script within RouteManager.js.
+function attemptReroute(url) {
+    console.log("Current URL: " + url);
+    let newURL = reroute(url);
+    console.log("Routing attempt: " + newURL);
+    if (newURL) {
+        let gettingValues = browser.storage.local.get("extState");
+        gettingValues.then((val) => {
+            if (val.extState.autoMode) {
+                location.href = newURL;
+                observer.disconnect();
+            } else {
+                observer.disconnect();
             }
-        }
-        if (i > 0)
-            costs[s2.length] = lastValue;
+        });
     }
-    return costs[s2.length];
 }
 
-/// TODO: This works on macOS but not iOS
-function historyBackWFallback(fallbackUrl) {
-    fallbackUrl = fallbackUrl || '/';
-    var prevPage = window.location.href;
-
-    window.history.go(-1);
-
-    setTimeout(function(){
-        if (window.location.href == prevPage) {
-            window.location.href = fallbackUrl;
-        }
-    }, 500);
-}

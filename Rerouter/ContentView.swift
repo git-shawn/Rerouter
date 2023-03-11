@@ -10,15 +10,11 @@ import StoreKit
 
 /// Rerouter's initial view.
 struct ContentView: View {
-    @State private var showExtension: Bool = false
-    @State private var showPrivacy: Bool = false
-    @State private var showGuide: Bool = false
-    @State private var showMaps: Bool = false
-    
-    @AppStorage("manual", store: UserDefaults(suiteName: "group.shwndvs.Rerouter")) var isManual: Bool = false
+    @State var routeQuery: String = ""
+    @State var conversionError: Error? = nil
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 /// Google Maps takes uses Universal Links to redirect web visitors to their app.
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
@@ -28,119 +24,103 @@ struct ContentView: View {
                         HStack {
                             Image(systemName: "exclamationmark.bubble")
                                 .font(.largeTitle)
-                            Text("Rerouter may not work as intended with Google Maps installed.\nTap for more information.")
+                            Text("Rerouter may not work as intended with Google Maps installed.")
                         }
                         .padding(.vertical, 6)
                         .foregroundColor(Color("warnTxt"))
                         .multilineTextAlignment(.leading)
-                        .onTapGesture(perform: {
-                            showMaps = true
-                        })
                         .listRowBackground(Color("warnBkg"))
-                    }.sheet(isPresented: $showMaps, content: {
-                        MapWarningModal(showMapWarningModal: $showMaps)
-                    })
-                }
-                Section {
-                    /// Present instructions to enable the Rerouter extension.
-                    Button(action: {
-                        showExtension = true
-                    }) {
-                        Label {
-                            Text("Enable Extension")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "puzzlepiece.extension")
-                                .foregroundColor(.accentColor)
-                        }
-                    }.sheet(
-                        isPresented: self.$showExtension
-                    ) {
-                        ExtensionModal(showExtensionModal: $showExtension)
                     }
-                    
-                    /// Present Rerouter's privacy policy.
-                    Button(action: {
-                        showPrivacy = true
-                    }) {
-                        Label {
-                            Text("Privacy Policy")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "hand.raised")
-                                .foregroundColor(.accentColor)
-                        }
-                    }.sheet(
-                        isPresented: self.$showPrivacy
-                    ) {
-                        PrivacyModal(showPrivacyModal: $showPrivacy)
-                    }
-                    
-                    /// Navigate to the About page.
-                    NavigationLink(destination: AboutView()) {
-                        Label {
-                            Text("About")
-                                .foregroundColor(.primary)
-                        } icon: {
-                            Image(systemName: "info.circle")
-                                .foregroundColor(.accentColor)
-                        }
-                    }
-                    
                 }
                 
+                Section(content: {
+                    HStack {
+                        TextField(text: $routeQuery, label: {
+                            Label("Enter a Link to Reroute", systemImage: "map.circle")
+                        })
+                        .onSubmit {
+                            convertURL()
+                        }
+                        .submitLabel(.done)
+                        .keyboardType(.URL)
+                        .toolbar {
+                            ToolbarItem(placement: .keyboard, content: {
+                                if UIPasteboard.general.hasURLs {
+                                    Button("Paste URL", action: {
+                                        routeQuery = UIPasteboard.general.url?.absoluteString ?? ""
+                                    })
+                                    Spacer()
+                                }
+                            })
+                        }
+                        if !routeQuery.isEmpty {
+                            Button(action: {
+                                routeQuery = ""
+                            }, label: {
+                                Label("Clear", systemImage: "x.circle.fill")
+                                    .imageScale(.large)
+                                    .labelStyle(.iconOnly)
+                                    .foregroundColor(.gray)
+                                    .opacity(0.5)
+                            }).buttonStyle(.borderless)
+                        }
+                    }
+                }, footer: {
+                    Text("Paste a Google Maps URL to open in the default Maps app.")
+                })
                 Section {
-                    VStack(alignment: .leading) {
-                        Toggle("Enable manual rerouting", isOn: $isManual)
-                            .tint(.accentColor)
-                        Text("You will be asked each time before Rerouter attempts to open a link in Maps. If you decline, you won't be asked again while on that page.")
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                            .padding(.bottom, 3)
+                    NavigationLink(destination: {
+                        GuideView()
+                    }, label: {
+                        Label("Getting Started", systemImage: "flag.checkered")
+                            .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                    })
+                    NavigationLink(destination: {
+                        PrivacyView()
+                    }, label: {
+                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                            .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                    })
+                    NavigationLink(destination: {
+                        AboutView()
+                    }, label: {
+                        Label("About Rerouter", systemImage: "info.bubble.fill")
+                            .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                    })
+                }
+            }
+            .toolbar(content: {
+                Spacer()
+            })
+#if targetEnvironment(macCatalyst)
+            .environment(\.defaultMinListRowHeight, 42)
+#else
+            .navigationTitle("Rerouter")
+#endif
+        }
+        .errorAlert(error: $conversionError)
+    }
+    
+    func convertURL() {
+        if routeQuery.isValidURL {
+            let newURL = JSBridge().convertURL(text: routeQuery)
+            if (newURL != nil) {
+                UIApplication.shared.open(URL(string: newURL!)!) { success in
+                    if !success {
+                        conversionError = .urlFailed
                     }
                 }
-            }.navigationTitle("Rerouter")
-        }
-        .navigationViewStyle(.stack)
-#if targetEnvironment(macCatalyst)
-        .withHostingWindow { window in
-            if let titlebar = window?.windowScene?.titlebar {
-                titlebar.titleVisibility = .hidden
-                titlebar.toolbar = nil
+            } else {
+                conversionError = .routingError
             }
+        } else {
+            conversionError = .invalidURL
         }
-#endif
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-// Hide titlebar on macOS
-// From John at https://stackoverflow.com/a/65243349
-
-extension View {
-    fileprivate func withHostingWindow(_ callback: @escaping (UIWindow?) -> Void) -> some View {
-        self.background(HostingWindowFinder(callback: callback))
-    }
-}
-
-fileprivate struct HostingWindowFinder: UIViewRepresentable {
-    var callback: (UIWindow?) -> ()
-    
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView()
-        DispatchQueue.main.async { [weak view] in
-            self.callback(view?.window)
-        }
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIView, context: Context) {
     }
 }

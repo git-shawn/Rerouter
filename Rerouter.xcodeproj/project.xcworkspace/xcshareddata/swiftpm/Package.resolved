@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "slideshow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HumorousGhost/Slideshow",
+      "state" : {
+        "revision" : "59504830318762197ac109d37104c6e8b5b01484",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}

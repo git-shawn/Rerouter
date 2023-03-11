@@ -1,12 +1,12 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "default_locale": "en",
-
+    
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
-    "version": "3",
+    "version": "3.5",
     "homepage_url": "https://fromshawn.dev/rerouter.html",
-
+    
     "icons": {
         "48": "images/icon-48.png",
         "96": "images/icon-96.png",
@@ -15,31 +15,21 @@
         "512": "images/icon-512.png"
     },
     
-    "background": {
-        "scripts": [ "background.js" ],
-        "persistent": false
-    },
-
     "content_scripts": [{
-        "js": [ "content.js" ],
+        "js": [ "RouteManager.js", "content.js" ],
         "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
     }],
     
-    "browser_action": {
-        "default_popup": "popup.html",
-        "default_title": "Rerouter",
+    "action": {
         "default_icon": {
             "16": "images/toolbar-icon-16.png",
             "19": "images/toolbar-icon-19.png",
             "32": "images/toolbar-icon-32.png",
             "38": "images/toolbar-icon-38.png"
-        }
+        },
+        "default_popup": "popup.html"
     },
-
-    "permissions": [
-        "tabs",
-        "nativeMessaging",
-        "webNavigation"
-    ]
+    
+    "permissions": [ "tabs", "storage", "webNavigation" ]
 }
