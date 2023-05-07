@@ -17,7 +17,7 @@ struct ColorfulIconLabelStyle: LabelStyle {
             configuration.title
         } icon: {
             configuration.icon
-                .font(.system(size: 16))
+                .font(.system(size: 14))
                 .foregroundColor(.white)
                 .background(RoundedRectangle(cornerRadius: 7).frame(width: 28, height: 28).foregroundColor(color))
                 .padding(.trailing, 8)

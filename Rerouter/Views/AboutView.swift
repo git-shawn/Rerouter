@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct AboutView: View {
     var body: some View {
@@ -40,26 +41,7 @@ struct AboutView: View {
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
-                Link(destination: URL(string: "https://www.fromshawn.dev/apps")!, label: {
-                    Label(title: {
-                        Text("More Apps By Me")
-                            .foregroundColor(.primary)
-                    }, icon: {
-                        Image(systemName: "plus.square.fill.on.square.fill")
-                    })
-                    .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
-                })
-                Button(action: {
-                    StoreManager.shared.leaveTip()
-                }, label: {
-                    Label(title: {
-                        Text("Buy Me a Coffee")
-                            .foregroundColor(.primary)
-                    }, icon: {
-                        Image(systemName: "mug.fill")
-                    })
-                    .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
-                })
+                TipButton()
             }
         }
         .navigationTitle("About")

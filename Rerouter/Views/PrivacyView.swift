@@ -10,19 +10,28 @@ import SwiftUI
 struct PrivacyView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
-            Image(systemName: "hand.raised.circle")
-                .font(.system(size: 72))
-                .foregroundColor(.accentColor)
-                .padding(.vertical)
-            Text("Rerouter does not contain any trackers or loggers and does not collect any user information.\n\nAdditionally, Rerouter will **never** add tracking via an update. Rerouter performs all processing on your device. That means Rerouter never shares your browsing information with a person, company, or server.\n\nYou are encouraged to verify these claims by browsing the source code on [Github](https://github.com/git-shawn/Rerouter).")
-                .padding(.bottom)
-                .padding(.horizontal)
-        }.navigationTitle("Privacy Policy")
+            Text("""
+Let's start with the basics: **I do not collect any information**. Period. No personal information, no private information, no analytic data—nothing.
+
+That being said, if you consented to share app-specific analytic information with developers, Apple may collect anonymized usage data on my behalf. You can learn more about this in Apple's article on ["App Analytics & Privacy."](https://www.apple.com/legal/privacy/data/en/app-analytics/)
+
+Additionally, if you chose to email me some information may be retained to facilitate that conversation. This data includes your email address as well as the contents of the email itself. My email, [contact@fromshawn.dev](contact@fromshawn.dev), also uses iCloud.
+
+For my more technically inclined users, you're encouraged to verify all of these claims by perusing this app's publicly available [GitHub repository](https://github.com/git-shawn/rerouter). Of course, feel free to reach out to me with any further questions or comments.
+
+Thank you for using Rerouter!
+""")
+            .padding(.bottom)
+            .padding(.horizontal)
+        }
+        .navigationTitle("Privacy Policy")
     }
 }
 
 struct PrivacyView_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyView()
+        NavigationStack {
+            PrivacyView()
+        }
     }
 }
