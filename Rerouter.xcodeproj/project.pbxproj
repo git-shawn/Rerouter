@@ -93,6 +93,7 @@
 		CDF792FF2A07F95100B1FA50 /* RouteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteIntent.swift; sourceTree = "<group>"; };
 		CDF793012A07FAF000B1FA50 /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 		CDF793032A07FC2100B1FA50 /* TipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipButton.swift; sourceTree = "<group>"; };
+		CDF793052A08068F00B1FA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CDFCDA6A298EC0BF0029167C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		CDFCDAE6298EC4970029167C /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +140,7 @@
 		295EE75F270E31B000B30A07 /* Rerouter */ = {
 			isa = PBXGroup;
 			children = (
+				CDF793052A08068F00B1FA50 /* Info.plist */,
 				CDF792FE2A07F94900B1FA50 /* Intents */,
 				29E24E97272A075B004559D1 /* Tools */,
 				29CA615A270E60A600935190 /* Components */,
@@ -594,6 +596,7 @@
 				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Rerouter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -635,6 +638,7 @@
 				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Rerouter/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
