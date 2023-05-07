@@ -156,7 +156,6 @@
 			children = (
 				295EE774270E31B500B30A07 /* Assets.xcassets */,
 				295EE775270E31B500B30A07 /* Info.plist */,
-				29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */,
 				29FC6CFB27210082001B6719 /* Rerouter.entitlements */,
 				295EE766270E31B000B30A07 /* Icon.png */,
 			);
@@ -178,6 +177,7 @@
 			children = (
 				295EE782270E31B500B30A07 /* _locales */,
 				2965496A2774291600E2AFE3 /* images */,
+				29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */,
 				295EE78C270E31B600B30A07 /* popup.html */,
 				295EE788270E31B600B30A07 /* background.js */,
 				CD1E3F6729BBB11000BEEBC1 /* content.js */,
@@ -516,8 +516,9 @@
 		295EE797270E31B600B30A07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension/Resources/Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -550,8 +551,9 @@
 		295EE798270E31B600B30A07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension/Resources/Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -587,8 +589,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Rerouter/Resources/Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
@@ -627,8 +630,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Rerouter/Resources/Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
