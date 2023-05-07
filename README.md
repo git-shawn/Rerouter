@@ -10,7 +10,7 @@ Available for iOS and macOS.
 
 Rerouter performs all processing directly on your device and contains no trackers, loggers, etc. 
 
-[**Privacy Policy**](https://www.fromshawn.dev/rerouter#privacy)
+[**Privacy Policy**](https://www.fromshawn.dev/support/rerouter-privacy)
 
 ## How it Works 🛠️
 Rerouter starts by testing the page's URL against this regex defined by Google:
@@ -33,6 +33,8 @@ As a single page application, Google Maps is constantly and silently changing th
 Due to the server-side nature of Apple's [Universal Links](https://developer.apple.com/ios/universal-links/) system, it is unlikely that Rerouter can redirect a link *before* the user is sent to the Google Maps app. Because of this, Rerouter may not work with Google Maps installed.
 
 ## What's New? 🤩
+- Version 3.6
+	- Shortcuts support via App Intents.
 - Version 3.5
 	- Faster and less resource intensive URL observation system
 	- Switched to Manifest V3
