@@ -39,7 +39,9 @@ struct ContentView: View {
                             Label("Enter a Link to Reroute", systemImage: "map.circle")
                         })
                         .onSubmit {
-                            convertURL()
+                            Task {
+                                await convertURL()
+                            }
                         }
                         .submitLabel(.done)
                         .keyboardType(.URL)
@@ -101,11 +103,12 @@ struct ContentView: View {
         .errorAlert(error: $conversionError)
     }
     
-    func convertURL() {
-        if routeQuery.isValidURL {
-            let newURL = JSBridge().convertURL(text: routeQuery)
+    func convertURL() async {
+        if let routeURL = URL(string: routeQuery) {
+            let expandedURL = await routeURL.expand()
+            let newURL = JSBridge().convertURL(text: expandedURL.absoluteString)
             if (newURL != nil) {
-                UIApplication.shared.open(URL(string: newURL!)!) { success in
+                await UIApplication.shared.open(URL(string: newURL!)!) { success in
                     if !success {
                         conversionError = .urlFailed
                     }

@@ -30,6 +30,10 @@
 		CD1E3F6929BBC3AE00BEEBC1 /* RouteManager.js in Resources */ = {isa = PBXBuildFile; fileRef = CD2C275429A58296007F2F9D /* RouteManager.js */; };
 		CD1E3F6C29BBCCDD00BEEBC1 /* Slideshow in Frameworks */ = {isa = PBXBuildFile; productRef = CD1E3F6B29BBCCDD00BEEBC1 /* Slideshow */; };
 		CD1E3F6E29BBCCE900BEEBC1 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E3F6D29BBCCE900BEEBC1 /* GuideView.swift */; };
+		CDB44AEA2A7402FE00ED10B2 /* Rerouter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */; };
+		CDB44AEC2A7403BF00ED10B2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AEB2A7403BF00ED10B2 /* Logger.swift */; };
+		CDB44AED2A74071100ED10B2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AEB2A7403BF00ED10B2 /* Logger.swift */; };
+		CDB44AEE2A74071300ED10B2 /* Rerouter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */; };
 		CDF7846C29B66384001D081E /* RouteManager.js in Resources */ = {isa = PBXBuildFile; fileRef = CD2C275429A58296007F2F9D /* RouteManager.js */; };
 		CDF793002A07F95200B1FA50 /* RouteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF792FF2A07F95100B1FA50 /* RouteIntent.swift */; };
 		CDF793022A07FAF000B1FA50 /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF793012A07FAF000B1FA50 /* IntentProvider.swift */; };
@@ -90,6 +94,8 @@
 		CD1E3F6729BBB11000BEEBC1 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		CD1E3F6D29BBCCE900BEEBC1 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		CD2C275429A58296007F2F9D /* RouteManager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = RouteManager.js; sourceTree = "<group>"; };
+		CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter+URL.swift"; sourceTree = "<group>"; };
+		CDB44AEB2A7403BF00ED10B2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		CDF792FF2A07F95100B1FA50 /* RouteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteIntent.swift; sourceTree = "<group>"; };
 		CDF793012A07FAF000B1FA50 /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 		CDF793032A07FC2100B1FA50 /* TipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipButton.swift; sourceTree = "<group>"; };
@@ -213,9 +219,11 @@
 		29E24E97272A075B004559D1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				CD1420B429B1A2DB00D1CA6A /* Rerouter+String.swift */,
-				CD1420B829B1A95C00D1CA6A /* Rerouter+Error.swift */,
 				CD1420BA29B1AAC000D1CA6A /* JSBridge.swift */,
+				CDB44AEB2A7403BF00ED10B2 /* Logger.swift */,
+				CD1420B829B1A95C00D1CA6A /* Rerouter+Error.swift */,
+				CD1420B429B1A2DB00D1CA6A /* Rerouter+String.swift */,
+				CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -364,6 +372,8 @@
 				CDFCDAE7298EC4970029167C /* PrivacyView.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				CDF793002A07F95200B1FA50 /* RouteIntent.swift in Sources */,
+				CDB44AEA2A7402FE00ED10B2 /* Rerouter+URL.swift in Sources */,
+				CDB44AEC2A7403BF00ED10B2 /* Logger.swift in Sources */,
 				CD1420AF29B16EE800D1CA6A /* Rerouter+LabelStyle.swift in Sources */,
 				CD1E3F6E29BBCCE900BEEBC1 /* GuideView.swift in Sources */,
 			);
@@ -373,7 +383,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB44AEE2A74071300ED10B2 /* Rerouter+URL.swift in Sources */,
 				295EE780270E31B500B30A07 /* SafariWebExtensionHandler.swift in Sources */,
+				CDB44AED2A74071100ED10B2 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +532,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension/Resources/Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -533,7 +545,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.6;
+				MARKETING_VERSION = 3.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -555,7 +567,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension/Resources/Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -568,7 +580,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.6;
+				MARKETING_VERSION = 3.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -593,7 +605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter/Resources/Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -609,7 +621,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.6;
+				MARKETING_VERSION = 3.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -635,7 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter/Resources/Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -651,7 +663,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 3.6;
+				MARKETING_VERSION = 3.7;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

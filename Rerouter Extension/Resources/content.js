@@ -23,6 +23,7 @@ if (mapsRegex.test(location.href)) {
 function attemptReroute(url) {
     console.log("Current URL: " + url);
     let newURL = reroute(url);
+    
     console.log("Routing attempt: " + newURL);
     if (newURL) {
         let gettingValues = browser.storage.local.get("extState");

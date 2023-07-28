@@ -23,7 +23,8 @@ struct RouteIntent: AppIntent {
     }
     
     func perform() async throws -> some ReturnsValue<String> {
-        let newURL = JSBridge().convertURL(text: url.absoluteString)
+        let expandedURL = await url.expand()
+        let newURL = JSBridge().convertURL(text: expandedURL.absoluteString)
         guard let resultString = newURL, !resultString.isEmpty else {
             throw $url.needsValueError("Rerouter could not convert the provided URL. Please try another.")
         }

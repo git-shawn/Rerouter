@@ -21,8 +21,12 @@ For my more technically inclined users, you're encouraged to verify all of these
 
 Thank you for using Rerouter!
 """)
+#if targetEnvironment(macCatalyst)
+            .padding()
+#else
             .padding(.bottom)
             .padding(.horizontal)
+#endif
         }
         .navigationTitle("Privacy Policy")
     }
