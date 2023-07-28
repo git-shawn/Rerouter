@@ -33,6 +33,8 @@ As a single page application, Google Maps is constantly and silently changing th
 Due to the server-side nature of Apple's [Universal Links](https://developer.apple.com/ios/universal-links/) system, it is unlikely that Rerouter can redirect a link *before* the user is sent to the Google Maps app. Because of this, Rerouter may not work with Google Maps installed.
 
 ## What's New? 🤩
+- Version 3.7
+	- Rerouter now expands all shortened Google Maps URLs to a format that the conversion function can read.
 - Version 3.6
 	- Shortcuts support via App Intents.
 - Version 3.5
