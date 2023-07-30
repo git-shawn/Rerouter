@@ -4,7 +4,9 @@ Searching for places, like parks or restaurants, with Google can be a huge pain 
 
 Available for iOS and macOS.
 
-[**Download Here!**](https://apps.apple.com/us/app/id1589151155)
+[**Download Here**](https://apps.apple.com/us/app/id1589151155)
+
+<a href="https://testflight.apple.com/join/gQHgloIz"><img alt="Join TestFlight Beta" src="https://raw.githubusercontent.com/git-shawn/QR-Pop/main/GitHubResources/TestflightButton.png" width="180"></a>
 
 ## Privacy 🕵️
 
