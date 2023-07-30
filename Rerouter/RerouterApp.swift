@@ -14,6 +14,15 @@ struct Rerouter: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+#if targetEnvironment(macCatalyst)
+                .onAppear {
+                    UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.forEach { windowScene in
+                        windowScene.sizeRestrictions?.minimumSize = CGSize(width: 430, height: 550)
+                        windowScene.sizeRestrictions?.maximumSize = CGSize(width: 430, height: 550)
+                        windowScene.sizeRestrictions?.allowsFullScreen = false
+                    }
+                }
+#endif
             
             //MARK: - Handle external purchases
                 .task(priority: .background) {
@@ -36,7 +45,7 @@ struct Rerouter: App {
         .commands {
             CommandGroup(replacing: .help) {
                 Link("Rerouter Help", destination: URL(string: "https://www.fromshawn.dev/support?tag=rerouter")!)
-                Link("Contact Me", destination: URL(string: "mailto:contact@fromshawn.dev")!)
+                Link("Email the Developer", destination: URL(string: "mailto:contact@fromshawn.dev")!)
             }
         }
 #endif

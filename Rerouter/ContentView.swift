@@ -12,6 +12,7 @@ import StoreKit
 struct ContentView: View {
     @State var routeQuery: String = ""
     @State var conversionError: Error? = nil
+    @State var showGuide: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -71,12 +72,32 @@ struct ContentView: View {
                     Text("Paste a Google Maps URL to open in the default Maps app.")
                 })
                 Section {
-                    NavigationLink(destination: {
-                        GuideView()
+                    Button(action: {
+                        showGuide.toggle()
                     }, label: {
-                        Label("Getting Started", systemImage: "flag.checkered")
-                            .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                        HStack {
+                            Label("Setup Guide", systemImage: "flag.checkered")
+                                .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                                .opacity(0.5)
+                                .bold()
+                        }
                     })
+                    .sheet(isPresented: $showGuide) {
+                        NavigationView {
+                            GuideView()
+                                .navigationTitle("Setup Guide")
+                                .navigationBarTitleDisplayMode(.inline)
+                                .toolbar {
+                                    Button("Done", action: {
+                                        showGuide = false
+                                    })
+                                }
+                        }
+                    }
                     NavigationLink(destination: {
                         PrivacyView()
                     }, label: {

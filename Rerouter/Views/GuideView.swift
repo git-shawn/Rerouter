@@ -6,87 +6,176 @@
 //
 
 import SwiftUI
-import Slideshow
-
-struct Item: Identifiable {
-    let id = UUID()
-    let image: String
-    let title: String
-}
-#if targetEnvironment(macCatalyst)
-let items = [
-    Item(image: "catext1", title: "first"),
-    Item(image: "catext2", title: "second"),
-    Item(image: "catext3", title: "third"),
-    Item(image: "catext4", title: "fourth"),
-    Item(image: "catext5", title: "fourth")
-]
-#else
-let items = [
-    Item(image: "safext1", title: "first"),
-    Item(image: "safext2", title: "second"),
-    Item(image: "safext3", title: "third"),
-    Item(image: "safext4", title: "fourth"),
-    Item(image: "safext5", title: "fourth")
-]
-#endif
+import AVKit
 
 struct GuideView: View {
-    @State private var showAllowAllAlert: Bool = false
-    var body: some View {
-        ScrollView {
-            Slideshow(items, spacing: 10, isWrap: true, autoScroll: .defaultActive) { item in
-                itemView(item: item)
-                    .frame(width: 350, height: 200)
-                    .cornerRadius(16)
-                    .shadow(radius: 4)
-            }.frame(width: UIScreen.main.bounds.width, height: 250)
-                .padding()
-            VStack(alignment: .leading, spacing: 16) {
-                // Instructions for macOS
+    @State private var showAllowAllDisclaimer: Bool = false
 #if targetEnvironment(macCatalyst)
-                Group {
-                    Label("Open the **Safari** app", systemImage: "safari")
-                    Label("Select **Safari > Settings** from the menu bar", systemImage: "filemenu.and.cursorarrow")
-                    Label("Select **Extensions**", systemImage: "puzzlepiece.extension")
-                    Label("Select **Rerouter**", systemImage: "location.circle")
-                    Label("Toggle Rerouter **on**", systemImage: "checkmark.circle")
-                    Label("Enable **All Websites**", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
-                } .labelStyle(GettingStartedLabelStyle())
+    @State var avPlayer = AVPlayer(url: Bundle.main.url(forResource: "macSafExtSetup", withExtension: "mp4")!)
 #else
-                // Instructions for iOS
-                Group {
-                    Label("Open the **Settings** app", systemImage: "gear")
-                    Label("Scroll down to **Safari**", systemImage: "safari")
-                    Label("Select **Extensions**", systemImage: "puzzlepiece.extension")
-                    Label("Select **Rerouter**", systemImage: "location.circle")
-                    Label("Toggle Rerouter **on**", systemImage: "checkmark.circle")
-                    Label("Enable **All Websites**", systemImage: "checkmark.circle.trianglebadge.exclamationmark")
-                } .labelStyle(GettingStartedLabelStyle())
+    @State var avPlayer = AVPlayer(url: Bundle.main.url(forResource: "mobileSafExtSetup", withExtension: "mp4")!)
+#endif
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            ZStack(alignment: .bottomTrailing) {
+                AVPlayerControllerRepresented(player: avPlayer)
+                    .aspectRatio(16/9, contentMode: .fit)
+                    .frame(maxWidth: 480)
+                    .cornerRadius(15, antialiased: true)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 15, style: .continuous)
+                            .stroke(.gray, lineWidth: 2)
+                    }
+                    .onAppear {
+                        avPlayer.seek(to: .zero)
+                        avPlayer.play()
+                    }
+                Button(action: {
+                    avPlayer.seek(to: .zero)
+                    avPlayer.play()
+                }, label: {
+                    Label("Replay", systemImage: "arrow.counterclockwise")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(.primary)
+                        .font(.headline)
+                        .padding(7)
+                        .background(
+                            Circle()
+                                .fill(.thickMaterial)
+                                .shadow(radius: 3)
+                        )
+                        .padding()
+                })
+#if targetEnvironment(macCatalyst)
+                .buttonStyle(.plain)
 #endif
             }
             .padding()
-            .frame(minWidth: 350, alignment: .leading)
-            .background(content: {
-                Color(uiColor: UIColor.secondarySystemGroupedBackground)
-                    .cornerRadius(16)
-            })
-            .padding(.bottom)
+#if targetEnvironment(macCatalyst)
+            macGuide
+#else
+            iosGuide
+#endif
+            Spacer()
         }
-        .navigationTitle("Getting Started")
-        .background(content: {
-            Color(uiColor: UIColor.systemGroupedBackground)
-                .ignoresSafeArea()
-        })
+        .sheet(isPresented: $showAllowAllDisclaimer) {
+            allowAllDisclaimer
+        }
+    }
+#if targetEnvironment(macCatalyst)
+    var macGuide: some View {
+        Grid(alignment: .leading, horizontalSpacing: 15, verticalSpacing: 15) {
+            GridRow {
+                Image(systemName: "safari")
+                    .foregroundColor(.secondary)
+                Text("Open the **Safari** app")
+            }
+            GridRow {
+                Image(systemName: "filemenu.and.cursorarrow")
+                    .foregroundColor(.secondary)
+                Text("Select **Settings** from the menu bar")
+            }
+            GridRow {
+                Image(systemName: "puzzlepiece.extension")
+                    .foregroundColor(.secondary)
+                Text("Select **Extensions**")
+            }
+            GridRow {
+                Image(systemName: "location.circle")
+                    .foregroundColor(.secondary)
+                Text("Turn Rerouter **on**")
+            }
+            GridRow {
+                Image(systemName: "lock.open")
+                    .foregroundColor(.secondary)
+                HStack(spacing: 15) {
+                    Text("**Allow** on every websites")
+                    Button(action: {
+                        showAllowAllDisclaimer.toggle()
+                    }, label: {
+                        Label("More Info", systemImage: "info.circle.fill")
+                            .labelStyle(.iconOnly)
+                            .font(.body)
+                    })
+                    .buttonStyle(.plain)
+                    .foregroundColor(.accentColor)
+                }
+            }
+        }
+        .font(.title3)
+        .padding()
+        .padding(.horizontal)
     }
     
-    @ViewBuilder
-    func itemView(item: Item) -> some View {
-        ZStack {
-            Image(item.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 200)
+#else
+    
+    var iosGuide: some View {
+        Grid(alignment: .leading, horizontalSpacing: 15, verticalSpacing: 15) {
+            GridRow {
+                Image(systemName: "gear")
+                    .foregroundColor(.secondary)
+                Text("Open the **Settings** app")
+            }
+            GridRow {
+                Image(systemName: "safari")
+                    .foregroundColor(.secondary)
+                Text("Select **Safari**")
+            }
+            GridRow {
+                Image(systemName: "puzzlepiece.extension")
+                    .foregroundColor(.secondary)
+                Text("Select **Extensions**")
+            }
+            GridRow {
+                Image(systemName: "location.circle")
+                    .foregroundColor(.secondary)
+                Text("Turn Rerouter **on**")
+            }
+            GridRow {
+                Image(systemName: "lock.open")
+                    .foregroundColor(.secondary)
+                HStack(spacing: 15) {
+                    Text("**Allow** all websites")
+                    Button(action: {
+                        showAllowAllDisclaimer.toggle()
+                    }, label: {
+                        Label("More Info", systemImage: "info.circle.fill")
+                            .labelStyle(.iconOnly)
+                            .font(.body)
+                    })
+                }
+            }
+        }
+        .font(.title3)
+        .padding()
+        .padding(.horizontal)
+    }
+#endif
+    
+    var allowAllDisclaimer: some View {
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Rerouter needs permission to view the URL of **every** website you visit in order to function. Why?")
+                    Text("Why Should I Allow All Websites?")
+                        .font(.title)
+                        .bold()
+                    Text("Every time you visit a website, Rerouter will check the URL to see if it belongs to Google Maps. If it does, the app will begin the process of converting that URL then redirecting you.\n\nWhile it might seem easy to limit Rerouter's scope to just \"maps.google.com,\" Google Maps URLs take on a lot more forms than that. These URLs can appear as \"goo.gl,\" \"google.com/maps,\" and of course various unique countries like \"maps.google.de\" and \"google.co.jp/maps.\"\n\nWhile it would make the process a lot less **automatic**, you are always free to enable Rerouter on a per-website basis. Additionally, Rerouter can be easily activated and deactivated from within Safari.")
+                    Text("What About My Privacy?")
+                        .font(.title)
+                        .bold()
+                    Text("That's a great question, and one you should always ask before granting \"All Websites\" permission to an extension. Luckily, there's nothing to worry about here.\n\nRerouter is built with privacy in mind. All processing happens on your device and no data is collected by me—period. You can read more about this in Rerouter's Privacy Policy but the long and short of it is that Rerouter doesn't track you and it never will.\n\nFor those more technically inclined, you do not have to take my word for it. Rerouter is completely open-source. All code is avaialble for you to browse yourself [on Github](https://www.github.com/git-shawn/rerouter) at any time. Additionally, I'm always available [via email](mailto:contact@fromshawn.dev) for any questions.\n\nThank you for using Rerouter \(Image(systemName: "heart"))")
+                }
+                .padding()
+            }
+            .navigationTitle("Allow All Websites")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                Button("Done", action: {
+                    showAllowAllDisclaimer = false
+                })
+            }
         }
     }
 }

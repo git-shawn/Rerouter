@@ -15,6 +15,7 @@ struct ColorfulIconLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
         Label {
             configuration.title
+                .foregroundColor(.primary)
         } icon: {
             configuration.icon
                 .font(.system(size: 14))

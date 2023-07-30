@@ -28,12 +28,14 @@
 		CD1420BB29B1AAC000D1CA6A /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420BA29B1AAC000D1CA6A /* JSBridge.swift */; };
 		CD1E3F6829BBB11000BEEBC1 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = CD1E3F6729BBB11000BEEBC1 /* content.js */; };
 		CD1E3F6929BBC3AE00BEEBC1 /* RouteManager.js in Resources */ = {isa = PBXBuildFile; fileRef = CD2C275429A58296007F2F9D /* RouteManager.js */; };
-		CD1E3F6C29BBCCDD00BEEBC1 /* Slideshow in Frameworks */ = {isa = PBXBuildFile; productRef = CD1E3F6B29BBCCDD00BEEBC1 /* Slideshow */; };
 		CD1E3F6E29BBCCE900BEEBC1 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1E3F6D29BBCCE900BEEBC1 /* GuideView.swift */; };
 		CDB44AEA2A7402FE00ED10B2 /* Rerouter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */; };
 		CDB44AEC2A7403BF00ED10B2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AEB2A7403BF00ED10B2 /* Logger.swift */; };
 		CDB44AED2A74071100ED10B2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AEB2A7403BF00ED10B2 /* Logger.swift */; };
 		CDB44AEE2A74071300ED10B2 /* Rerouter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */; };
+		CDB44AF92A76D51200ED10B2 /* UIVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB44AF82A76D51200ED10B2 /* UIVideoPlayer.swift */; };
+		CDB44B012A76D96600ED10B2 /* mobileSafExtSetup.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CDB44B002A76D84200ED10B2 /* mobileSafExtSetup.mp4 */; };
+		CDB44B032A76DCCA00ED10B2 /* macSafExtSetup.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CDB44B022A76DCCA00ED10B2 /* macSafExtSetup.mp4 */; };
 		CDF7846C29B66384001D081E /* RouteManager.js in Resources */ = {isa = PBXBuildFile; fileRef = CD2C275429A58296007F2F9D /* RouteManager.js */; };
 		CDF793002A07F95200B1FA50 /* RouteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF792FF2A07F95100B1FA50 /* RouteIntent.swift */; };
 		CDF793022A07FAF000B1FA50 /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF793012A07FAF000B1FA50 /* IntentProvider.swift */; };
@@ -96,6 +98,9 @@
 		CD2C275429A58296007F2F9D /* RouteManager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = RouteManager.js; sourceTree = "<group>"; };
 		CDB44AE92A7402FE00ED10B2 /* Rerouter+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter+URL.swift"; sourceTree = "<group>"; };
 		CDB44AEB2A7403BF00ED10B2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		CDB44AF82A76D51200ED10B2 /* UIVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVideoPlayer.swift; sourceTree = "<group>"; };
+		CDB44B002A76D84200ED10B2 /* mobileSafExtSetup.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobileSafExtSetup.mp4; sourceTree = "<group>"; };
+		CDB44B022A76DCCA00ED10B2 /* macSafExtSetup.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = macSafExtSetup.mp4; sourceTree = "<group>"; };
 		CDF792FF2A07F95100B1FA50 /* RouteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteIntent.swift; sourceTree = "<group>"; };
 		CDF793012A07FAF000B1FA50 /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 		CDF793032A07FC2100B1FA50 /* TipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipButton.swift; sourceTree = "<group>"; };
@@ -110,7 +115,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */,
-				CD1E3F6C29BBCCDD00BEEBC1 /* Slideshow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +166,8 @@
 		295EE762270E31B000B30A07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDB44B022A76DCCA00ED10B2 /* macSafExtSetup.mp4 */,
+				CDB44B002A76D84200ED10B2 /* mobileSafExtSetup.mp4 */,
 				295EE774270E31B500B30A07 /* Assets.xcassets */,
 				295EE775270E31B500B30A07 /* Info.plist */,
 				29FC6CFB27210082001B6719 /* Rerouter.entitlements */,
@@ -212,6 +218,7 @@
 			children = (
 				CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */,
 				CDF793032A07FC2100B1FA50 /* TipButton.swift */,
+				CDB44AF82A76D51200ED10B2 /* UIVideoPlayer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,7 +271,6 @@
 			);
 			name = Rerouter;
 			packageProductDependencies = (
-				CD1E3F6B29BBCCDD00BEEBC1 /* Slideshow */,
 			);
 			productName = Reroute;
 			productReference = 295EE75D270E31B000B30A07 /* Rerouter.app */;
@@ -315,7 +321,6 @@
 			);
 			mainGroup = 295EE754270E31B000B30A07;
 			packageReferences = (
-				CD1E3F6A29BBCCDD00BEEBC1 /* XCRemoteSwiftPackageReference "Slideshow" */,
 			);
 			productRefGroup = 295EE75E270E31B000B30A07 /* Products */;
 			projectDirPath = "";
@@ -334,7 +339,9 @@
 			files = (
 				CD1E3F6929BBC3AE00BEEBC1 /* RouteManager.js in Resources */,
 				295EE767270E31B000B30A07 /* Icon.png in Resources */,
+				CDB44B012A76D96600ED10B2 /* mobileSafExtSetup.mp4 in Resources */,
 				295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */,
+				CDB44B032A76DCCA00ED10B2 /* macSafExtSetup.mp4 in Resources */,
 				295EE793270E31B600B30A07 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +372,7 @@
 				CDF793022A07FAF000B1FA50 /* IntentProvider.swift in Sources */,
 				CDFCDA6B298EC0BF0029167C /* AboutView.swift in Sources */,
 				CD1420B529B1A2DB00D1CA6A /* Rerouter+String.swift in Sources */,
+				CDB44AF92A76D51200ED10B2 /* UIVideoPlayer.swift in Sources */,
 				CDF793042A07FC2100B1FA50 /* TipButton.swift in Sources */,
 				2905E1F927834480002B6D7A /* RerouterApp.swift in Sources */,
 				CD1420B929B1A95C00D1CA6A /* Rerouter+Error.swift in Sources */,
@@ -532,7 +540,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension/Resources/Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -567,7 +575,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Rerouter Extension/Resources/Rerouter Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Rerouter Extension/Info.plist";
@@ -605,7 +613,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter/Resources/Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -613,8 +621,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -647,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Rerouter/Resources/Rerouter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Rerouter/Info.plist;
@@ -655,8 +663,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -712,25 +720,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CD1E3F6A29BBCCDD00BEEBC1 /* XCRemoteSwiftPackageReference "Slideshow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/HumorousGhost/Slideshow";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CD1E3F6B29BBCCDD00BEEBC1 /* Slideshow */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CD1E3F6A29BBCCDD00BEEBC1 /* XCRemoteSwiftPackageReference "Slideshow" */;
-			productName = Slideshow;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 295EE755270E31B000B30A07 /* Project object */;
 }

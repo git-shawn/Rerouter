@@ -12,20 +12,9 @@ struct AboutView: View {
     var body: some View {
         Form {
             Section {
-                Link(destination: URL(string: "https://github.com/git-shawn/Rerouter")!, label: {
-                    Label(title: {
-                        Text("Source Code")
-                            .foregroundColor(.primary)
-                    }, icon: {
-                        Image(systemName: "curlybraces.square.fill")
-                    })
-                    .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
-                })
-            }
-            Section {
                 Link(destination: URL(string: "mailto:contact@fromshawn.dev")!, label: {
                     Label(title: {
-                        Text("Contact Me")
+                        Text("Email the Developer")
                             .foregroundColor(.primary)
                     }, icon: {
                         Image(systemName: "envelope.fill")
@@ -42,6 +31,27 @@ struct AboutView: View {
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
                 TipButton()
+            }
+            
+            Section {
+                Link(destination: URL(string: "https://github.com/git-shawn/Rerouter")!, label: {
+                    Label(title: {
+                        Text("Source Code")
+                            .foregroundColor(.primary)
+                    }, icon: {
+                        Image(systemName: "curlybraces.square.fill")
+                    })
+                    .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                })
+                Link(destination: URL(string: "https://testflight.apple.com/join/gQHgloIz")!, label: {
+                    Label(title: {
+                        Text("Join the Beta")
+                            .foregroundColor(.primary)
+                    }, icon: {
+                        Image(systemName: "wrench.and.screwdriver.fill")
+                    })
+                    .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                })
             }
         }
         .navigationTitle("About")
