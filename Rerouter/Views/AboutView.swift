@@ -53,6 +53,15 @@ struct AboutView: View {
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
             }
+            
+            Section(content: {}, footer: {
+                VStack(alignment: .center) {
+                    Text("Rerouter is in no way affiliated with Google, Google Maps, or Alphabet Inc.")
+                    Text("Made with \(Image(systemName: "heart")) in Southern Illinois")
+                }
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+            })
         }
         .navigationTitle("About")
 #if targetEnvironment(macCatalyst)

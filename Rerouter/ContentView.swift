@@ -61,11 +61,12 @@ struct ContentView: View {
                                 routeQuery = ""
                             }, label: {
                                 Label("Clear", systemImage: "x.circle.fill")
-                                    .imageScale(.large)
+                                    .imageScale(.medium)
                                     .labelStyle(.iconOnly)
                                     .foregroundColor(.gray)
                                     .opacity(0.5)
-                            }).buttonStyle(.borderless)
+                            })
+                            .buttonStyle(.borderless)
                         }
                     }
                 }, footer: {
@@ -138,7 +139,9 @@ struct ContentView: View {
                 conversionError = .routingError
             }
         } else {
-            conversionError = .invalidURL
+            if !routeQuery.isEmpty {
+                conversionError = .invalidURL
+            }
         }
     }
 }
