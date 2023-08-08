@@ -128,9 +128,9 @@ struct ContentView: View {
     func convertURL() async {
         if let routeURL = URL(string: routeQuery) {
             let expandedURL = await routeURL.expand()
-            let newURL = JSBridge().convertURL(text: expandedURL.absoluteString)
-            if (newURL != nil) {
-                await UIApplication.shared.open(URL(string: newURL!)!) { success in
+            if let reroutedURL = JSBridge().convertURL(text: expandedURL.absoluteString),
+               let finalURL = URL(string: reroutedURL) {
+                await UIApplication.shared.open(finalURL) { success in
                     if !success {
                         conversionError = .urlFailed
                     }

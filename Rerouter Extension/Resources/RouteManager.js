@@ -15,14 +15,14 @@ var reroute = function(url) {
         if (coords.length > 0) {
             if (coords.length/2 > 1) {
                 // Multiple coordinates indicate directions, a start and an end.
-                return "maps://?saddr=" + coords[1] + "," + coords[0] + "&daddr=" + coords[3] + "," + coords[2];
+                return "http://maps.apple.com/?saddr=" + coords[1] + "," + coords[0] + "&daddr=" + coords[3] + "," + coords[2];
             } else if (url.includes("dir/")) {
                 // Directions that include only one set of coordinates should begin from the device's location.
-                return "maps://?daddr=" + coords[1] + "," + coords[0];
+                return "http://maps.apple.com/?daddr=" + coords[1] + "," + coords[0];
             } else {
                 // A single set of coordinates indicate a place.
                 // Places appear to present long and lat coordinates opposite the way directions do.
-                return "maps://?address=" + coords[0] + "," + coords[1];
+                return "http://maps.apple.com/?address=" + coords[0] + "," + coords[1];
             }
         } else {
             return handleMapsLinkNoData(url)

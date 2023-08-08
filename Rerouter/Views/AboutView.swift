@@ -56,7 +56,7 @@ struct AboutView: View {
             
             Section(content: {}, footer: {
                 VStack(alignment: .center) {
-                    Text("Rerouter is in no way affiliated with Google, Google Maps, or Alphabet Inc.")
+                    Text("Rerouter is not affiliated with Google Maps")
                     Text("Made with \(Image(systemName: "heart")) in Southern Illinois")
                 }
                 .multilineTextAlignment(.center)

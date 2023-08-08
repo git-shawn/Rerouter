@@ -12,6 +12,9 @@ import StoreKit
 struct TipButton: View {
     @State private var tipped: Bool = false
     @State private var isTipping: Bool = false
+#if os(visionOS)
+    @Environment(\.purchase) private var purchase
+#endif
     
     var body: some View {
         Button(action: {
@@ -55,8 +58,15 @@ struct TipButton: View {
     @MainActor
     func purchase() async {
         do {
-            let product = try await Product.products(for: ["RerouteTip1"])
-            let result = try await product.first?.purchase()
+            let products = try await Product.products(for: ["RerouteTip1"])
+            guard let product = products.first else {
+                throw TipError.noProduct
+            }
+#if os(visionOS)
+            let result = try? await purchase(product)
+#else
+            let result = try await product.purchase()
+#endif
             switch result {
             case .success(let verification):
                 switch verification {
@@ -79,6 +89,10 @@ struct TipButton: View {
             logger.error("An unexpected error occured during purchase().")
         }
     }
+}
+
+fileprivate enum TipError: LocalizedError {
+    case noProduct
 }
 
 fileprivate let logger = Logger(subsystem: "shwndvs.Rerouter", category: "StoreKit")

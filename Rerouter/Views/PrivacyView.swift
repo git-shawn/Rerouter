@@ -18,8 +18,6 @@ That being said, if you consented to share app-specific analytic information wit
 Additionally, if you chose to email me some information may be retained to facilitate that conversation. This data includes your email address as well as the contents of the email itself. My email, [contact@fromshawn.dev](contact@fromshawn.dev), also uses iCloud.
 
 For my more technically inclined users, you're encouraged to verify all of these claims by perusing this app's publicly available [GitHub repository](https://github.com/git-shawn/rerouter). Of course, feel free to reach out to me with any further questions or comments.
-
-Thank you for using Rerouter!
 """)
 #if targetEnvironment(macCatalyst)
             .padding()

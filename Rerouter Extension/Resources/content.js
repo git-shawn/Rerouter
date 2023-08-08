@@ -29,7 +29,7 @@ function attemptReroute(url) {
         let gettingValues = browser.storage.local.get("extState");
         gettingValues.then((val) => {
             if (val.extState.autoMode) {
-                location.href = newURL;
+                window.location.replace(newURL);
                 observer.disconnect();
             } else {
                 observer.disconnect();
