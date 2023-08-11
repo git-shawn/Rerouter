@@ -28,12 +28,22 @@ function attemptReroute(url) {
     if (newURL) {
         let gettingValues = browser.storage.local.get("extState");
         gettingValues.then((val) => {
-            if (val.extState.autoMode) {
+            if (!val.extState.manualMode) {
                 window.location.replace(newURL);
                 observer.disconnect();
             } else {
                 observer.disconnect();
             }
+        })
+        // The variable `gettingValues` will throw an error if no value has ever been set.
+        // Set a value, then move on with rerouting.
+        .catch((error) => {
+            print(error);
+            browser.storage.local.set({
+              extState:  {manualMode: false}
+            });
+            window.location.replace(newURL);
+            observer.disconnect();
         });
     }
 }
