@@ -12,9 +12,6 @@ import StoreKit
 struct TipButton: View {
     @State private var tipped: Bool = false
     @State private var isTipping: Bool = false
-#if os(visionOS)
-    @Environment(\.purchase) private var purchase
-#endif
     
     var body: some View {
         Button(action: {
@@ -62,11 +59,8 @@ struct TipButton: View {
             guard let product = products.first else {
                 throw TipError.noProduct
             }
-#if os(visionOS)
-            let result = try? await purchase(product)
-#else
             let result = try await product.purchase()
-#endif
+
             switch result {
             case .success(let verification):
                 switch verification {
@@ -76,7 +70,7 @@ struct TipButton: View {
                     isTipping = false
                 case .unverified(_,_):
                     isTipping = false
-                    logger.notice("A purcahse returned unverified.")
+                    Logger.tool.notice("TipButton: A purchase returned unverified.")
                 }
             case .userCancelled, .pending:
                 isTipping = false
@@ -86,7 +80,7 @@ struct TipButton: View {
                 break
             }
         } catch {
-            logger.error("An unexpected error occured during purchase().")
+            Logger.tool.error("TipButton: An unexpected error occured during purchase().")
         }
     }
 }
@@ -94,8 +88,6 @@ struct TipButton: View {
 fileprivate enum TipError: LocalizedError {
     case noProduct
 }
-
-fileprivate let logger = Logger(subsystem: "shwndvs.Rerouter", category: "StoreKit")
 
 struct TipButton_Previews: PreviewProvider {
     static var previews: some View {

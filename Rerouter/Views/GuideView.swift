@@ -18,7 +18,6 @@ struct GuideView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            #if !os(visionOS)
             ZStack(alignment: .bottomTrailing) {
                 AVPlayerControllerRepresented(player: avPlayer)
                     .aspectRatio(16/9, contentMode: .fit)
@@ -53,7 +52,6 @@ struct GuideView: View {
 #endif
             }
             .padding()
-            #endif
 #if targetEnvironment(macCatalyst)
             macGuide
 #else

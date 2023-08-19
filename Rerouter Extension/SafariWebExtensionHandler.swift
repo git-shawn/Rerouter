@@ -19,12 +19,12 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
               let message = userInfo[SFExtensionMessageKey] as? String,
               let url = URL(string: message)
         else {
-            Logger.safariExt.error("Could not decipher message from browser")
+            Logger.safariExt.error("SafariWebExtensionHandler: Could not decipher message from browser")
             context.completeRequest(returningItems: nil, completionHandler: nil)
             return
         }
         
-        Logger.safariExt.notice("Expanding URL \(message)")
+        Logger.safariExt.notice("SafariWebExtensionHandler: Expanding URL \(message)")
         
         let response = NSExtensionItem()
         response.userInfo = [ SFExtensionMessageKey: [ "url": url ] ]

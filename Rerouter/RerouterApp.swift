@@ -45,7 +45,7 @@ struct Rerouter: App {
         .commands {
             CommandGroup(replacing: .help) {
                 Link("Rerouter Help", destination: URL(string: "https://www.fromshawn.dev/support?tag=rerouter")!)
-                Link("Email the Developer", destination: URL(string: "mailto:contact@fromshawn.dev")!)
+                Link("Contact Me", destination: URL(string: "mailto:contact@fromshawn.dev")!)
             }
         }
 #endif

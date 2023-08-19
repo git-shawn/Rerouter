@@ -14,7 +14,7 @@ struct AboutView: View {
             Section {
                 Link(destination: URL(string: "mailto:contact@fromshawn.dev")!, label: {
                     Label(title: {
-                        Text("Email the Developer")
+                        Text("Contact Me")
                             .foregroundColor(.primary)
                     }, icon: {
                         Image(systemName: "envelope.fill")

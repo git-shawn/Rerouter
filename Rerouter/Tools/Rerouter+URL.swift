@@ -18,18 +18,18 @@ extension URL {
             
             guard let response = response as? HTTPURLResponse,
                   response.statusCode == 200 else {
-                Logger.tool.warning("Expanded URL returned an unsupported status code")
+                Logger.tool.warning("URL.expand: Expanded URL returned an unsupported status code")
                 return self
             }
             
             if let expandedURL = response.url {
                 return expandedURL
             } else {
-                Logger.tool.warning("Request was completed but URL could not be expanded")
+                Logger.tool.warning("URL.expand: Request was completed but URL could not be expanded")
                 return self
             }
         } catch {
-            Logger.tool.error("Could not request URL expansion")
+            Logger.tool.error("URL.expand: Could not request URL expansion")
             return self
         }
     }

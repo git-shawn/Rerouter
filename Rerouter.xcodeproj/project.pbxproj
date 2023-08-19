@@ -21,6 +21,7 @@
 		295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE79D270E4A3300B30A07 /* ContentView.swift */; };
 		2965496B2774291600E2AFE3 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 2965496A2774291600E2AFE3 /* images */; };
 		2965496C27742A1000E2AFE3 /* rerouterIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 296549392774271700E2AFE3 /* rerouterIcon.svg */; };
+		29692A822A9105C2007D90B7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29692A812A9105C2007D90B7 /* FeedbackView.swift */; };
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
 		CD1420AF29B16EE800D1CA6A /* Rerouter+LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */; };
 		CD1420B529B1A2DB00D1CA6A /* Rerouter+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420B429B1A2DB00D1CA6A /* Rerouter+String.swift */; };
@@ -74,7 +75,6 @@
 		295EE766270E31B000B30A07 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		295EE76F270E31B000B30A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		295EE774270E31B500B30A07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		295EE775270E31B500B30A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		295EE77A270E31B500B30A07 /* Rerouter Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rerouter Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		295EE782270E31B500B30A07 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -86,6 +86,7 @@
 		295EE79D270E4A3300B30A07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		296549392774271700E2AFE3 /* rerouterIcon.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = rerouterIcon.svg; sourceTree = "<group>"; };
 		2965496A2774291600E2AFE3 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		29692A812A9105C2007D90B7 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
 		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
@@ -104,7 +105,7 @@
 		CDF792FF2A07F95100B1FA50 /* RouteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteIntent.swift; sourceTree = "<group>"; };
 		CDF793012A07FAF000B1FA50 /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 		CDF793032A07FC2100B1FA50 /* TipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipButton.swift; sourceTree = "<group>"; };
-		CDF793052A08068F00B1FA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CDF793052A08068F00B1FA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDFCDA6A298EC0BF0029167C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		CDFCDAE6298EC4970029167C /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,7 +151,6 @@
 		295EE75F270E31B000B30A07 /* Rerouter */ = {
 			isa = PBXGroup;
 			children = (
-				CDF793052A08068F00B1FA50 /* Info.plist */,
 				CDF792FE2A07F94900B1FA50 /* Intents */,
 				29E24E97272A075B004559D1 /* Tools */,
 				29CA615A270E60A600935190 /* Components */,
@@ -169,9 +169,9 @@
 				CDB44B022A76DCCA00ED10B2 /* macSafExtSetup.mp4 */,
 				CDB44B002A76D84200ED10B2 /* mobileSafExtSetup.mp4 */,
 				295EE774270E31B500B30A07 /* Assets.xcassets */,
-				295EE775270E31B500B30A07 /* Info.plist */,
 				29FC6CFB27210082001B6719 /* Rerouter.entitlements */,
 				295EE766270E31B000B30A07 /* Icon.png */,
+				CDF793052A08068F00B1FA50 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -209,6 +209,7 @@
 				CDFCDA6A298EC0BF0029167C /* AboutView.swift */,
 				CD1E3F6D29BBCCE900BEEBC1 /* GuideView.swift */,
 				CDFCDAE6298EC4970029167C /* PrivacyView.swift */,
+				29692A812A9105C2007D90B7 /* FeedbackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -382,6 +383,7 @@
 				CDF793002A07F95200B1FA50 /* RouteIntent.swift in Sources */,
 				CDB44AEA2A7402FE00ED10B2 /* Rerouter+URL.swift in Sources */,
 				CDB44AEC2A7403BF00ED10B2 /* Logger.swift in Sources */,
+				29692A822A9105C2007D90B7 /* FeedbackView.swift in Sources */,
 				CD1420AF29B16EE800D1CA6A /* Rerouter+LabelStyle.swift in Sources */,
 				CD1E3F6E29BBCCE900BEEBC1 /* GuideView.swift in Sources */,
 			);
@@ -620,7 +622,7 @@
 				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Rerouter/Info.plist;
+				INFOPLIST_FILE = Rerouter/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -664,7 +666,7 @@
 				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = QK557BC776;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Rerouter/Info.plist;
+				INFOPLIST_FILE = Rerouter/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rerouter;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

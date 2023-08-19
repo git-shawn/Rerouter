@@ -21,12 +21,13 @@ class JSBridge {
             
             context?.exceptionHandler = { context, exception in
                 Logger.tool.error("JSBridge: Error in JavaScript - \(exception?.description ?? "null").")
-                print("JS Error: \(exception?.description ?? "unknown error")")
             }
             context?.evaluateScript(jsSource)
             
             let routeFunction = context?.objectForKeyedSubscript("reroute")
-            return routeFunction?.call(withArguments: [text]).toString()
+            let result = routeFunction?.call(withArguments: [text]).toString()
+            print(result)
+            return result
         } catch {
             Logger.tool.error("JSBridge: RouteManager not accessible in bundle.")
             return nil

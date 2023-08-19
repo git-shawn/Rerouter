@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OSLog
 import StoreKit
 
 /// Rerouter's initial view.
@@ -21,6 +22,7 @@ struct ContentView: View {
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
                 /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
                 if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
+                    
                     Section {
                         HStack {
                             Image(systemName: "exclamationmark.bubble")
@@ -31,6 +33,9 @@ struct ContentView: View {
                         .foregroundColor(Color("warnTxt"))
                         .multilineTextAlignment(.leading)
                         .listRowBackground(Color("warnBkg"))
+                    }
+                    .onAppear {
+                        Logger.view.warning("ContentView: Google Maps is installed")
                     }
                 }
                 
@@ -72,6 +77,7 @@ struct ContentView: View {
                 }, footer: {
                     Text("Paste a Google Maps URL to open in the default Maps app.")
                 })
+                
                 Section {
                     Button(action: {
                         showGuide.toggle()
@@ -112,6 +118,22 @@ struct ContentView: View {
                             .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                     })
                 }
+                /**
+                Section {
+                    NavigationLink(
+                        destination:
+                            FeedbackView(),
+                        label: {
+                            Label(title: {
+                                Text("Submit Feedback")
+                                    .foregroundColor(.primary)
+                            }, icon: {
+                                Image(systemName: "megaphone.fill")
+                            })
+                            .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                        })
+                }
+                */
             }
             .toolbar(content: {
                 Spacer()
@@ -130,16 +152,20 @@ struct ContentView: View {
             let expandedURL = await routeURL.expand()
             if let reroutedURL = JSBridge().convertURL(text: expandedURL.absoluteString),
                let finalURL = URL(string: reroutedURL) {
+                Logger.view.info("ContentView: URL converted to \(reroutedURL)")
                 await UIApplication.shared.open(finalURL) { success in
                     if !success {
+                        Logger.view.error("ContentView: Could not open rerouted URL")
                         conversionError = .urlFailed
                     }
                 }
             } else {
+                Logger.view.error("ContentView: Could not reroute URL")
                 conversionError = .routingError
             }
         } else {
             if !routeQuery.isEmpty {
+                Logger.view.notice("ContentView: Invalid URL submitted")
                 conversionError = .invalidURL
             }
         }

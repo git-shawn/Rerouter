@@ -39,10 +39,13 @@ function handleMapsLinkNoData(url) {
     let params = new URLSearchParams(url);
     
     if (params.has('daddr')) {
-        aURL = "http://maps.apple.com/?daddr=" + params.get('daddr');
+        aURL = "http://maps.apple.com/?daddr=" + encodeURI(params.get('daddr'));
         if (params.has('saddr')) {
-            aURL += "&saddr=" + params.get('saddr');
+            aURL += "&saddr=" + encodeURI(params.get('saddr'));
         }
+    } else if (params.has('query')) {
+        aURL = "http://maps.apple.com/?q=" + encodeURI(params.get('query'));
+        console.log(aURL);
     } else {
         rURL = rURL.replace(mapsRegex, "");
         rURL = rURL.split("/data=!")[0];
