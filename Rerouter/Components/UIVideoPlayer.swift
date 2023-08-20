@@ -16,6 +16,10 @@ struct AVPlayerControllerRepresented : UIViewControllerRepresentable {
         let controller = AVPlayerViewController()
         controller.player = player
         controller.showsPlaybackControls = false
+        controller.updatesNowPlayingInfoCenter = false
+#if !targetEnvironment(macCatalyst)
+        controller.allowsVideoFrameAnalysis = false
+#endif
         return controller
     }
     

@@ -26,7 +26,6 @@ class JSBridge {
             
             let routeFunction = context?.objectForKeyedSubscript("reroute")
             let result = routeFunction?.call(withArguments: [text]).toString()
-            print(result)
             return result
         } catch {
             Logger.tool.error("JSBridge: RouteManager not accessible in bundle.")

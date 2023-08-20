@@ -15,6 +15,7 @@ struct FeedbackView: View {
             .ignoresSafeArea()
             .navigationTitle("Feedback")
             .navigationBarTitleDisplayMode(.inline)
+            .preferredColorScheme(.light)
     }
 }
 
