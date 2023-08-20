@@ -10,20 +10,33 @@ import SwiftUI
 struct PrivacyView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
-            Text("""
-Let's start with the basics: **I do not collect any information**. Period. No personal information, no private information, no analytic data—nothing.
+            VStack(alignment: .leading, spacing: 15) {
+                
+                Text("""
+Rerouter doesn't collect, store, or transmit any of your data in any way.
 
-That being said, if you consented to share app-specific analytic information with developers, Apple may collect anonymized usage data on my behalf. You can learn more about this in Apple's article on ["App Analytics & Privacy."](https://www.apple.com/legal/privacy/data/en/app-analytics/)
+However, if you've enabled "Share With App Developers" in the "Analytics & Improvements" section of your device's settings then anonymous data may be collected by Apple and shared with me. You're welcome to disable this at any time. Please review Apple's [App Analytics Privacy Policy](https://www.apple.com/legal/privacy/data/en/app-analytics/) for more information.
 
-Additionally, if you chose to email me some information may be retained to facilitate that conversation. This data includes your email address as well as the contents of the email itself. My email, [contact@fromshawn.dev](contact@fromshawn.dev), also uses iCloud.
+Additionally, if you choose to "Submit Feedback" usage and analytic data may be collected by Google. Submitting feedback is not necessary to use and enjoy Rerouter. Please review [Google Privacy Policy](https://policies.google.com/privacy) for more information.
 
-For my more technically inclined users, you're encouraged to verify all of these claims by perusing this app's publicly available [GitHub repository](https://github.com/git-shawn/rerouter). Of course, feel free to reach out to me with any further questions or comments.
+Finally, any data you willfully and knowingly share, such as submitted data via the aforementioned feedback form or direct email correspondence with the developer, may be retained.
+
+If you have any questions at all feel free to email me any time at  contact@fromshawn.dev. I'll try to respond as quickly as I can.
+
+Thank you so much for using Rerouter.
 """)
+                
+                Text("Last updated August 19, 2023")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                
+            }
+            .frame(maxWidth: .infinity)
 #if targetEnvironment(macCatalyst)
-            .padding()
+            .scenePadding()
 #else
-            .padding(.bottom)
-            .padding(.horizontal)
+            .scenePadding(.bottom)
+            .scenePadding(.horizontal)
 #endif
         }
         .navigationTitle("Privacy Policy")

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2905E1F927834480002B6D7A /* RerouterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2905E1F827834480002B6D7A /* RerouterApp.swift */; };
+		295397A92A91968900D6CE56 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295397A82A91968900D6CE56 /* WebView.swift */; };
 		295EE767270E31B000B30A07 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 295EE766270E31B000B30A07 /* Icon.png */; };
 		295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */; };
 		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		2905E1F827834480002B6D7A /* RerouterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RerouterApp.swift; sourceTree = "<group>"; };
+		295397A82A91968900D6CE56 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		295EE75D270E31B000B30A07 /* Rerouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rerouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295EE766270E31B000B30A07 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		295EE76F270E31B000B30A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */,
 				CDF793032A07FC2100B1FA50 /* TipButton.swift */,
 				CDB44AF82A76D51200ED10B2 /* UIVideoPlayer.swift */,
+				295397A82A91968900D6CE56 /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				CDFCDAE7298EC4970029167C /* PrivacyView.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				CDF793002A07F95200B1FA50 /* RouteIntent.swift in Sources */,
+				295397A92A91968900D6CE56 /* WebView.swift in Sources */,
 				CDB44AEA2A7402FE00ED10B2 /* Rerouter+URL.swift in Sources */,
 				CDB44AEC2A7403BF00ED10B2 /* Logger.swift in Sources */,
 				29692A822A9105C2007D90B7 /* FeedbackView.swift in Sources */,

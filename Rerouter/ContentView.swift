@@ -118,7 +118,7 @@ struct ContentView: View {
                             .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                     })
                 }
-                /**
+
                 Section {
                     NavigationLink(
                         destination:
@@ -133,7 +133,6 @@ struct ContentView: View {
                             .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                         })
                 }
-                */
             }
             .toolbar(content: {
                 Spacer()
