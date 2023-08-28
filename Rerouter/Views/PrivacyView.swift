@@ -11,26 +11,26 @@ struct PrivacyView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 15) {
-                GroupBox(label:
-                            Label("TLDR", systemImage: "text.bubble")
-                ) {
-                    Text("Rerouter itself doesn't collect any data. Depending on your settings, Apple may. Outbound links probably will. Enjoy!")
-                }
                 
                 Text("""
-Rerouter ("the app") performs all processing locally, on your device. Any data collected or created by the app is never shared with me or any third parties.
-  
-If you have enabled "Share With App Developers" in the "Analytics & Improvements" section of your device's settings then anonymous data may be collected by Apple, Inc. ("Apple") and shared with me. You're welcome to disable this at any time. Please review Apple's [App Analytics Privacy Policy](https://www.apple.com/legal/privacy/data/en/app-analytics/) for more information.
-  
-Additionally, I have included links on this app for your use and reference, including the "Submit Feedback" feature. I am not responsible for the privacy policies on these websites. You should be aware that the privacy policies of these websites may differ from my own.
-  
-Any data you willfully and knowingly share, such as submitted data via the aforementioned feedback form or direct email correspondence with me, may be retained.
-  
-This policy is effective as of the date posted above and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
-  
-I reserve the right to update or change this privacy policy at any time. You should check this privacy policy periodically. If any material changes are made a prominent notice will be placed within this app.
-  
-For any questions, comments, or concerns regarding this policy, please send me an email to [contact@fromshawn.dev](mailto:contact@fromshawn.dev).
+Rerouter does not embed any third-party tracking or logging technologies nor does it retain or transmit any data.
+
+**Analytics**
+Rerouter does not perform any first-party data collection, including the collection of analytic data. If you previously agreed to share analytic data with developers then some anonymized data may be collected by Apple, Inc ("Apple") and shared with me. Please refer to Apple's [App Analytics Privacy Policy](https://www.apple.com/legal/privacy/data/en/app-analytics/) for more information.
+
+**External Links**
+For your use and reference, various third-party links may have been embedded into this application. I am not responsible for the privacy policies of these external services. Their privacy policies may differ from my own.
+
+**Direct Communications**
+If you choose to communicate with me directly, such as via email, then any information you share may be retained.
+
+**Future Changes**
+I reserve the right to review and update this privacy policy in the future as needed. You are encouraged to occasionally revisit this page to stay aware of modifications to this agreement.
+
+Rest assured, this document will never allow for the collection of any data for, or concerning, advertising.
+
+**Contact**
+For any questions, feel free to contact me via email at contact@fromshawn.dev. I look forward to hearing from you.
 """)
                 
                 Text("Last updated August 27, 2023")

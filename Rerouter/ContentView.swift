@@ -21,7 +21,7 @@ struct ContentView: View {
                 /// Google Maps takes uses Universal Links to redirect web visitors to their app.
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
                 /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
-                if (!UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
+                if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
 
                     Section {
                         HStack {
