@@ -18,27 +18,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             Form {
-                /// Google Maps takes uses Universal Links to redirect web visitors to their app.
-                /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
-                /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
-                if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
-
-                    Section {
-                        HStack {
-                            Image(systemName: "exclamationmark.bubble")
-                                .font(.largeTitle)
-                            Text("Rerouter may not work as intended with Google Maps installed.")
-                        }
-                        .padding(.vertical, 6)
-                        .foregroundColor(Color("warnTxt"))
-                        .multilineTextAlignment(.leading)
-                        .listRowBackground(Color("warnBkg"))
-                    }
-                    .onAppear {
-                        Logger.view.warning("ContentView: Google Maps is installed")
-                    }
-                }
-                
                 Section(content: {
                     HStack {
                         TextField(text: $routeQuery, label: {
@@ -49,6 +28,8 @@ struct ContentView: View {
                                 await convertURL()
                             }
                         }
+                        .autocorrectionDisabled(true)
+                        .textInputAutocapitalization(.never)
                         .submitLabel(.done)
                         .keyboardType(.URL)
                         .toolbar {
@@ -137,6 +118,11 @@ struct ContentView: View {
             .toolbar(content: {
                 Spacer()
             })
+            .safeAreaInset(edge: .bottom) {
+                GMapsDetective()
+                    .listRowBackground(Color.clear)
+            }
+            
 #if targetEnvironment(macCatalyst)
             .environment(\.defaultMinListRowHeight, 42)
 #else

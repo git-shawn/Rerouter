@@ -23,6 +23,7 @@
 		2965496B2774291600E2AFE3 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 2965496A2774291600E2AFE3 /* images */; };
 		2965496C27742A1000E2AFE3 /* rerouterIcon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 296549392774271700E2AFE3 /* rerouterIcon.svg */; };
 		29692A822A9105C2007D90B7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29692A812A9105C2007D90B7 /* FeedbackView.swift */; };
+		29A1767F2A9CDE3900671B63 /* GMapsDetective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1767E2A9CDE3900671B63 /* GMapsDetective.swift */; };
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
 		CD1420AF29B16EE800D1CA6A /* Rerouter+LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */; };
 		CD1420B529B1A2DB00D1CA6A /* Rerouter+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420B429B1A2DB00D1CA6A /* Rerouter+String.swift */; };
@@ -89,6 +90,7 @@
 		296549392774271700E2AFE3 /* rerouterIcon.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = rerouterIcon.svg; sourceTree = "<group>"; };
 		2965496A2774291600E2AFE3 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		29692A812A9105C2007D90B7 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		29A1767E2A9CDE3900671B63 /* GMapsDetective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMapsDetective.swift; sourceTree = "<group>"; };
 		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
 		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				CDF793032A07FC2100B1FA50 /* TipButton.swift */,
 				CDB44AF82A76D51200ED10B2 /* UIVideoPlayer.swift */,
 				295397A82A91968900D6CE56 /* WebView.swift */,
+				29A1767E2A9CDE3900671B63 /* GMapsDetective.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				CDFCDA6B298EC0BF0029167C /* AboutView.swift in Sources */,
 				CD1420B529B1A2DB00D1CA6A /* Rerouter+String.swift in Sources */,
 				CDB44AF92A76D51200ED10B2 /* UIVideoPlayer.swift in Sources */,
+				29A1767F2A9CDE3900671B63 /* GMapsDetective.swift in Sources */,
 				CDF793042A07FC2100B1FA50 /* TipButton.swift in Sources */,
 				2905E1F927834480002B6D7A /* RerouterApp.swift in Sources */,
 				CD1420B929B1A95C00D1CA6A /* Rerouter+Error.swift in Sources */,

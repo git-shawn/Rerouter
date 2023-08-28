@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Rerouter automatically opens Google Maps directions in the Apple Maps app.",
+        "message": "Rerouter automatically opens Google Maps URLs in the Apple Maps app.",
         "description": "Description of what the extension does."
     }
 }
