@@ -43,6 +43,15 @@ struct AboutView: View {
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
+                Link(destination: URL(string: "https://www.fromshawn.dev/rerouter/support")!, label: {
+                    Label(title: {
+                        Text("Support Articles")
+                            .foregroundColor(.primary)
+                    }, icon: {
+                        Image(systemName: "lifepreserver.fill")
+                    })
+                    .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
+                })
                 Link(destination: URL(string: "https://testflight.apple.com/join/gQHgloIz")!, label: {
                     Label(title: {
                         Text("Join the Beta")

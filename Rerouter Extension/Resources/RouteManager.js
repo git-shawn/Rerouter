@@ -9,6 +9,8 @@ var mapsRegex = /https?:\/\/(((www|maps)\.)?(google\.).*(\/maps)|maps\.(google\.
 // This function does not accept Google Maps short URLs.
 // URLs should first be expanded if possible.
 var reroute = function(url) {
+    console.log("Attempting rerouter for " + url);
+    
     if (mapsRegex.test(url)) {
         var coords = new parseCoordsFromDataParam(url);
         
@@ -25,7 +27,11 @@ var reroute = function(url) {
                 return "http://maps.apple.com/?address=" + coords[0] + "," + coords[1];
             }
         } else {
-            return handleMapsLinkNoData(url)
+            
+            console.log("Retrying reroute with second layer attempt...");
+            
+            let result = handleMapsLinkNoData(url);
+            return result;
         }
     }
 }
@@ -39,20 +45,25 @@ function handleMapsLinkNoData(url) {
     let params = new URLSearchParams(url);
     
     if (params.has('daddr')) {
-        aURL = "http://maps.apple.com/?daddr=" + encodeURI(params.get('daddr'));
+        aURL = "https://maps.apple.com/?daddr=" + encodeURIComponent(params.get('daddr'));
         if (params.has('saddr')) {
-            aURL += "&saddr=" + encodeURI(params.get('saddr'));
+            aURL += "&saddr=" + encodeURIComponent(params.get('saddr'));
         }
     } else if (params.has('query')) {
-        aURL = "http://maps.apple.com/?q=" + encodeURI(params.get('query'));
+        aURL = "https://maps.apple.com/?q=" + encodeURIComponent(params.get('query'));
         console.log(aURL);
+    } else if (params.has('sll') && params.has('q')) {
+        aURL = "https://maps.apple.com/?q=" + encodeURIComponent(params.get('q')) + "&sll=" + encodeURIComponent(params.get('sll')) + "&z=" + encodeURIComponent(params.get('z'));
     } else {
         rURL = rURL.replace(mapsRegex, "");
         rURL = rURL.split("/data=!")[0];
         rURL = rURL.split("/");
-        rURL.shift();
+        if (rURL.length > 1) {
+            rURL.shift();
+        }
         
         if (rURL.length > 0) {
+            aURL = rURL
             // Pop should theoretically always reveal the important coordinates.
             if (rURL[rURL.length - 1].includes("@")) {
                 coords = rURL.pop();
@@ -62,14 +73,14 @@ function handleMapsLinkNoData(url) {
             }
             
             if (rURL.length == 0) {
-                aURL = "http://maps.apple.com/?ll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
+                aURL = "https://maps.apple.com/?ll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
             } else if (rURL[0].includes("dir")) {
-                aURL = "http://maps.apple.com/?daddr=" + rURL[2];
+                aURL = "https://maps.apple.com/?daddr=" + rURL[2];
             } else if (rURL[0].includes("place") || rURL[0].includes("search")) {
-                aURL = "http://maps.apple.com/?q=" + rURL[1] + "&sll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
+                aURL = "https://maps.apple.com/?q=" + rURL[1] + "&sll=" + coords[0] + "," + coords[1] + "&z=" + coords[2];
             } else {
                 // This is called when a link isn't a place, directions, search, or coordinates. Rather, a mysterious fifth thing.
-                console.log("Unexpected URL type. Unable to reroute!")
+                throw new Error("Unexpected URL type. Unable to reroute!");
             }
         }
     }

@@ -21,8 +21,8 @@ struct ContentView: View {
                 /// Google Maps takes uses Universal Links to redirect web visitors to their app.
                 /// iOS prioritizes Universal Links (understandably), so we likely won't even get the chance to redirect the page.
                 /// This section warns the user, if Google Maps is detected on the system, that there may be unexpected behavior.
-                if (UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
-                    
+                if (!UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!)) {
+
                     Section {
                         HStack {
                             Image(systemName: "exclamationmark.bubble")
@@ -151,6 +151,7 @@ struct ContentView: View {
             let expandedURL = await routeURL.expand()
             if let reroutedURL = JSBridge().convertURL(text: expandedURL.absoluteString),
                let finalURL = URL(string: reroutedURL) {
+                
                 Logger.view.info("ContentView: URL converted to \(reroutedURL)")
                 await UIApplication.shared.open(finalURL) { success in
                     if !success {

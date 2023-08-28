@@ -7,10 +7,17 @@
 
 import Foundation
 import OSLog
+import WebKit
 
 extension URL {
+    
     func expand() async -> URL {
-        var request = URLRequest(url: self)
+        var url = self;
+        if url.absoluteString.hasPrefix("http://") {
+            url = URL(string:("https" + url.absoluteString.dropFirst(4)))!
+        }
+        
+        var request = URLRequest(url: url)
         request.httpMethod = "HEAD"
         
         do {
@@ -23,6 +30,7 @@ extension URL {
             }
             
             if let expandedURL = response.url {
+                Logger.tool.info("URL.expand: URL expanded: \(expandedURL)")
                 return expandedURL
             } else {
                 Logger.tool.warning("URL.expand: Request was completed but URL could not be expanded")
