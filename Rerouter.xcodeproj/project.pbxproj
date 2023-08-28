@@ -25,7 +25,7 @@
 		29692A822A9105C2007D90B7 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29692A812A9105C2007D90B7 /* FeedbackView.swift */; };
 		29A1767F2A9CDE3900671B63 /* GMapsDetective.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1767E2A9CDE3900671B63 /* GMapsDetective.swift */; };
 		29E24E9B272A08B1004559D1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E24E9A272A08B1004559D1 /* StoreKit.framework */; };
-		CD1420AF29B16EE800D1CA6A /* Rerouter+LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */; };
+		CD1420AF29B16EE800D1CA6A /* Rerouter+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420AE29B16EE800D1CA6A /* Rerouter+Styles.swift */; };
 		CD1420B529B1A2DB00D1CA6A /* Rerouter+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420B429B1A2DB00D1CA6A /* Rerouter+String.swift */; };
 		CD1420B929B1A95C00D1CA6A /* Rerouter+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420B829B1A95C00D1CA6A /* Rerouter+Error.swift */; };
 		CD1420BB29B1AAC000D1CA6A /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1420BA29B1AAC000D1CA6A /* JSBridge.swift */; };
@@ -44,7 +44,6 @@
 		CDF793022A07FAF000B1FA50 /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF793012A07FAF000B1FA50 /* IntentProvider.swift */; };
 		CDF793042A07FC2100B1FA50 /* TipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF793032A07FC2100B1FA50 /* TipButton.swift */; };
 		CDFCDA6B298EC0BF0029167C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCDA6A298EC0BF0029167C /* AboutView.swift */; };
-		CDFCDAE7298EC4970029167C /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFCDAE6298EC4970029167C /* PrivacyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +93,7 @@
 		29E24E9A272A08B1004559D1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29FC6CFB27210082001B6719 /* Rerouter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rerouter.entitlements; sourceTree = "<group>"; };
 		29FC6CFC27210082001B6719 /* Rerouter Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rerouter Extension.entitlements"; sourceTree = "<group>"; };
-		CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter+LabelStyle.swift"; sourceTree = "<group>"; };
+		CD1420AE29B16EE800D1CA6A /* Rerouter+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter+Styles.swift"; sourceTree = "<group>"; };
 		CD1420B429B1A2DB00D1CA6A /* Rerouter+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter+String.swift"; sourceTree = "<group>"; };
 		CD1420B829B1A95C00D1CA6A /* Rerouter+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rerouter+Error.swift"; sourceTree = "<group>"; };
 		CD1420BA29B1AAC000D1CA6A /* JSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		CDF793032A07FC2100B1FA50 /* TipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipButton.swift; sourceTree = "<group>"; };
 		CDF793052A08068F00B1FA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDFCDA6A298EC0BF0029167C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		CDFCDAE6298EC4970029167C /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +210,6 @@
 			children = (
 				CDFCDA6A298EC0BF0029167C /* AboutView.swift */,
 				CD1E3F6D29BBCCE900BEEBC1 /* GuideView.swift */,
-				CDFCDAE6298EC4970029167C /* PrivacyView.swift */,
 				29692A812A9105C2007D90B7 /* FeedbackView.swift */,
 			);
 			path = Views;
@@ -221,7 +218,7 @@
 		29CA615A270E60A600935190 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CD1420AE29B16EE800D1CA6A /* Rerouter+LabelStyle.swift */,
+				CD1420AE29B16EE800D1CA6A /* Rerouter+Styles.swift */,
 				CDF793032A07FC2100B1FA50 /* TipButton.swift */,
 				CDB44AF82A76D51200ED10B2 /* UIVideoPlayer.swift */,
 				295397A82A91968900D6CE56 /* WebView.swift */,
@@ -385,14 +382,13 @@
 				2905E1F927834480002B6D7A /* RerouterApp.swift in Sources */,
 				CD1420B929B1A95C00D1CA6A /* Rerouter+Error.swift in Sources */,
 				CD1420BB29B1AAC000D1CA6A /* JSBridge.swift in Sources */,
-				CDFCDAE7298EC4970029167C /* PrivacyView.swift in Sources */,
 				295EE79E270E4A3300B30A07 /* ContentView.swift in Sources */,
 				CDF793002A07F95200B1FA50 /* RouteIntent.swift in Sources */,
 				295397A92A91968900D6CE56 /* WebView.swift in Sources */,
 				CDB44AEA2A7402FE00ED10B2 /* Rerouter+URL.swift in Sources */,
 				CDB44AEC2A7403BF00ED10B2 /* Logger.swift in Sources */,
 				29692A822A9105C2007D90B7 /* FeedbackView.swift in Sources */,
-				CD1420AF29B16EE800D1CA6A /* Rerouter+LabelStyle.swift in Sources */,
+				CD1420AF29B16EE800D1CA6A /* Rerouter+Styles.swift in Sources */,
 				CD1E3F6E29BBCCE900BEEBC1 /* GuideView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

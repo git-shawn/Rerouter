@@ -10,11 +10,11 @@ import SwiftUI
 struct GMapsDetective: View {
     @State private var showDetails: Bool = false;
     @State private var isGMapsInstalled: Bool = false
-    @AppStorage("showGmapsAlert") private var showGmapsAlert: Bool = true
+    @AppStorage("showGMapsAlert") private var showGMapsAlert: Bool = true
     
     var body: some View {
         Group {
-            if isGMapsInstalled && showGmapsAlert {
+            if isGMapsInstalled && showGMapsAlert {
                 VStack(alignment: .leading) {
                     HStack(spacing: 10) {
                         Image(systemName: "exclamationmark.triangle.fill")
@@ -39,7 +39,7 @@ struct GMapsDetective: View {
                                 .stroke(.tertiary, lineWidth: 1)
                         )
                 )
-                .frame(maxWidth: 350)
+                .frame(maxWidth: 400)
                 .scenePadding()
                 .sheet(isPresented: $showDetails) {
                     NavigationStack {
@@ -49,21 +49,13 @@ struct GMapsDetective: View {
                                     .font(.title2)
                                     .bold()
                                 Text("""
-Rerouter was designed to work on *any* website, not just on a Google search results page. The way it accomplishes that is by observing the URL of the website you're currently visiting and, if it matches the known Google Maps URL structure, rerouting it on-the-fly.
+Rerouter works by observing the URL of the site you are currently visiting and reacting to it. If the URL matches a structure Rerouter knows to be Google Maps, it is taken apart and reconstructed as an Apple Maps URL. This new URL subsequently replaces the URL in your browser. The entire process takes just milliseconds.
 
-The Google Maps website and the Google Maps apps are *associated with* each other via a system Apple calls ["Universal Links"](https://developer.apple.com/ios/universal-links/). With universal links, websites can open their associated apps directly in a way that extensions, like Rerouter, cannot interrupt.
-""")
-                                Text("Is There a Way Around This?")
-                                    .font(.title2)
-                                    .bold()
-                                Text("""
-At this moment, no. There is currently no system in place to "opt out" of Universal Links. If you discover a workaround yourself please email me at [contact@fromshawn.dev](mailto:contact@fromshawn.dev).
+This system allows Rerouter to work from any website—not just Google's search results pages. However, it's not without caveats. Mainly, Rerouter must actually visit the URL it wants to Reroute. The page doesn't necessarily need to load, but Safari should at least attempt to navigate to it.
+
+Some websites employ a system Apple calls [Universal Links](https://developer.apple.com/ios/universal-links/), which directly associates a website with an app. The Universal Links system intercepts web traffic and redirects it to the correct app. With Universal Links, redirection happens at the system level, not Safari. That means Rerouter never sees the URL in the first place.
 """)
                                 
-                                GroupBox {
-                                    Toggle("Show Google Maps Warning?", isOn: $showGmapsAlert)
-                                        .tint(.accentColor)
-                                }
                             }
                             .scenePadding()
                             .navigationTitle("About Google Maps")
@@ -73,6 +65,18 @@ At this moment, no. There is currently no system in place to "opt out" of Univer
                                     showDetails = false
                                 })
                             }
+                        }
+                        .safeAreaInset(edge: .bottom) {
+                            Button(action: {
+                                showGMapsAlert = false
+                            }, label: {
+                                Text("Dismiss Warning")
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                            })
+                            .buttonStyle(.borderedProminent)
+                            .padding()
                         }
                     }
                 }

@@ -86,12 +86,15 @@ struct ContentView: View {
                                 }
                         }
                     }
-                    NavigationLink(destination: {
-                        PrivacyView()
-                    }, label: {
+                    
+                    Link(destination: (
+                        URL(string: "https://www.fromshawn.dev/rerouter/privacy-policy")!
+                    ), label: {
                         Label("Privacy Policy", systemImage: "hand.raised.fill")
                             .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                     })
+                    .buttonStyle(OutboundLinkButtonStyle())
+                    
                     NavigationLink(destination: {
                         AboutView()
                     }, label: {
@@ -99,7 +102,7 @@ struct ContentView: View {
                             .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                     })
                 }
-
+                
                 Section {
                     NavigationLink(
                         destination:
@@ -118,9 +121,8 @@ struct ContentView: View {
             .toolbar(content: {
                 Spacer()
             })
-            .safeAreaInset(edge: .bottom) {
+            .safeAreaInset(edge: .bottom, alignment: .center) {
                 GMapsDetective()
-                    .listRowBackground(Color.clear)
             }
             
 #if targetEnvironment(macCatalyst)

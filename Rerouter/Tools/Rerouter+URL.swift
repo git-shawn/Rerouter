@@ -21,7 +21,7 @@ extension URL {
         request.httpMethod = "HEAD"
         
         do {
-            let (_, response) = try await URLSession.shared.data(for: request)
+            let (_, response) = try await URLSession(configuration: .ephemeral).data(for: request)
             
             guard let response = response as? HTTPURLResponse,
                   response.statusCode == 200 else {

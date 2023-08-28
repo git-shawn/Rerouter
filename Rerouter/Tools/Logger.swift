@@ -7,8 +7,7 @@
 
 import OSLog
 
-import OSLog
-
+// A simple abstraction for interacting with OSLog
 extension Logger {
     private static var subsystem = Bundle.main.bundleIdentifier!
     

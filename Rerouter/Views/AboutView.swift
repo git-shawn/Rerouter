@@ -21,6 +21,8 @@ struct AboutView: View {
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
+                .buttonStyle(OutboundLinkButtonStyle())
+                
                 ShareLink(item: URL(string: "https://www.fromshawn.dev/rerouter")!, label: {
                     Label(title: {
                         Text("Share Rerouter")
@@ -30,6 +32,8 @@ struct AboutView: View {
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
+                .buttonStyle(OutboundLinkButtonStyle())
+                
                 TipButton()
             }
             
@@ -39,19 +43,24 @@ struct AboutView: View {
                         Text("Source Code")
                             .foregroundColor(.primary)
                     }, icon: {
-                        Image(systemName: "curlybraces.square.fill")
+                        Image(systemName: "chevron.left.forwardslash.chevron.right")
+                            .bold()
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
+                .buttonStyle(OutboundLinkButtonStyle())
+                
                 Link(destination: URL(string: "https://www.fromshawn.dev/rerouter/support")!, label: {
                     Label(title: {
-                        Text("Support Articles")
+                        Text("Rerouter Help")
                             .foregroundColor(.primary)
                     }, icon: {
                         Image(systemName: "lifepreserver.fill")
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
+                .buttonStyle(OutboundLinkButtonStyle())
+                
                 Link(destination: URL(string: "https://testflight.apple.com/join/gQHgloIz")!, label: {
                     Label(title: {
                         Text("Join the Beta")
@@ -61,6 +70,7 @@ struct AboutView: View {
                     })
                     .labelStyle(ColorfulIconLabelStyle(color: .accentColor))
                 })
+                .buttonStyle(OutboundLinkButtonStyle())
             }
             
             Section(content: {}, footer: {

@@ -45,3 +45,24 @@ struct GettingStartedLabelStyle: LabelStyle {
         }
     }
 }
+
+struct OutboundLinkButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+                .tint(.primary)
+            Spacer()
+            Image(systemName: "arrow.up.forward")
+                .accessibility(hidden: true)
+                .font(Font.system(size: 13, weight: .bold, design: .default))
+                .foregroundStyle(.tertiary)
+        }
+#if os(macOS)
+        .buttonStyle(.plain)
+#else
+        .hoverEffect(.highlight)
+#endif
+        .opacity(configuration.isPressed ? 0.5 : 1)
+        .contentShape(Rectangle())
+    }
+}
