@@ -70,13 +70,15 @@ Some websites employ a system Apple calls [Universal Links](https://developer.ap
                             Button(action: {
                                 showGMapsAlert = false
                             }, label: {
-                                Text("Dismiss Warning")
+                                Text("Hide Warning")
                                     .font(.headline)
-                                    .padding()
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal)
                                     .frame(maxWidth: .infinity)
                             })
                             .buttonStyle(.borderedProminent)
                             .padding()
+                            .background(.regularMaterial)
                         }
                     }
                 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2905E1F927834480002B6D7A /* RerouterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2905E1F827834480002B6D7A /* RerouterApp.swift */; };
 		295397A92A91968900D6CE56 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295397A82A91968900D6CE56 /* WebView.swift */; };
-		295EE767270E31B000B30A07 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 295EE766270E31B000B30A07 /* Icon.png */; };
 		295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295EE76E270E31B000B30A07 /* LaunchScreen.storyboard */; };
 		295EE77B270E31B500B30A07 /* Rerouter Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 295EE77A270E31B500B30A07 /* Rerouter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		295EE780270E31B500B30A07 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE77F270E31B500B30A07 /* SafariWebExtensionHandler.swift */; };
@@ -74,7 +73,6 @@
 		2905E1F827834480002B6D7A /* RerouterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RerouterApp.swift; sourceTree = "<group>"; };
 		295397A82A91968900D6CE56 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		295EE75D270E31B000B30A07 /* Rerouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rerouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		295EE766270E31B000B30A07 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		295EE76F270E31B000B30A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		295EE774270E31B500B30A07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		295EE77A270E31B500B30A07 /* Rerouter Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rerouter Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,7 +170,6 @@
 				CDB44B002A76D84200ED10B2 /* mobileSafExtSetup.mp4 */,
 				295EE774270E31B500B30A07 /* Assets.xcassets */,
 				29FC6CFB27210082001B6719 /* Rerouter.entitlements */,
-				295EE766270E31B000B30A07 /* Icon.png */,
 				CDF793052A08068F00B1FA50 /* Info.plist */,
 			);
 			path = Resources;
@@ -342,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1E3F6929BBC3AE00BEEBC1 /* RouteManager.js in Resources */,
-				295EE767270E31B000B30A07 /* Icon.png in Resources */,
 				CDB44B012A76D96600ED10B2 /* mobileSafExtSetup.mp4 in Resources */,
 				295EE770270E31B000B30A07 /* LaunchScreen.storyboard in Resources */,
 				CDB44B032A76DCCA00ED10B2 /* macSafExtSetup.mp4 in Resources */,
